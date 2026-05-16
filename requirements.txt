@@ -1,0 +1,9 @@
+Django>=6.0,<6.1
+numpy>=2.4
+pandas>=2.3
+scikit-learn>=1.8
+matplotlib>=3.10
+seaborn>=0.13
+Pillow>=12.1
+requests>=2.32
+openai>=2.26

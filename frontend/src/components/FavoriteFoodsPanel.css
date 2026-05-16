@@ -1,0 +1,152 @@
+.favorites-panel {
+  background: #2c2c2c;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.favorites-panel.favorites-empty {
+  background: #1a2a1a;
+  border-color: #2ECC71;
+  border-left-width: 4px;
+}
+
+.favorites-header {
+  margin-bottom: 16px;
+}
+
+.favorites-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #2ECC71;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.favorites-toggle:hover {
+  color: #27AE60;
+}
+
+.favorites-title {
+  flex: 1;
+  text-align: left;
+}
+
+.favorites-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-left: 8px;
+  font-size: 0.8rem;
+}
+
+.favorites-arrow.open {
+  transform: rotate(0deg);
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  animation: slideDown 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .favorites-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+}
+
+.favorite-food-wrapper {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 1px solid #444;
+}
+
+.favorite-meal-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.favorite-food-wrapper:hover .favorite-meal-buttons {
+  opacity: 1;
+}
+
+.btn-add-meal {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #2c2c2c;
+  border: 1px solid #444;
+}
+
+.btn-add-meal:hover {
+  transform: scale(1.1);
+  border-color: #2ECC71;
+}
+
+.breakfast-btn:hover {
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.3);
+}
+
+.lunch-btn:hover {
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+.dinner-btn:hover {
+  box-shadow: 0 0 8px rgba(173, 216, 230, 0.3);
+}
+
+.favorites-empty-message {
+  text-align: center;
+  padding: 20px 16px;
+  color: #aaa;
+}
+
+.favorites-empty-message p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.favorites-hint {
+  color: #2ECC71;
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

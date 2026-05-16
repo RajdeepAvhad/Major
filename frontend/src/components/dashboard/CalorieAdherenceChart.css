@@ -1,0 +1,107 @@
+.calorie-chart-card {
+  background: #2c2c2c;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.chart-title {
+  color: #2ECC71;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.chart-container {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #444;
+}
+
+.chart-container svg {
+  filter: brightness(0.95);
+}
+
+.chart-tooltip {
+  background: #1a1a1a;
+  border: 1px solid #2ECC71;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.tooltip-date {
+  color: #2ECC71;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  font-size: 0.9rem;
+}
+
+.tooltip-actual {
+  color: #2ECC71;
+  margin: 2px 0;
+  font-size: 0.85rem;
+}
+
+.tooltip-target {
+  color: #3498DB;
+  margin: 2px 0;
+  font-size: 0.85rem;
+}
+
+.tooltip-adherence {
+  color: #F39C12;
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.chart-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  border-left: 3px solid #2ECC71;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.info-icon {
+  color: #2ECC71;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.info-text {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .calorie-chart-card {
+    padding: 16px;
+  }
+
+  .chart-container {
+    padding: 12px;
+  }
+
+  .chart-title {
+    font-size: 1.1rem;
+  }
+
+  .chart-info {
+    font-size: 0.85rem;
+  }
+}

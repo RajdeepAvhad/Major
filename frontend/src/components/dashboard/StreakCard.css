@@ -1,0 +1,172 @@
+.streak-card {
+  background: #2c2c2c;
+  border: 2px solid #444;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.streak-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.streak-icon {
+  font-size: 4rem;
+  animation: bounce 2s infinite;
+}
+
+.streak-content {
+  flex: 1;
+}
+
+.streak-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #e8e8e8;
+}
+
+.streak-label {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 4px 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.streak-message {
+  font-size: 1rem;
+  color: #e8e8e8;
+  margin: 0;
+  font-weight: 500;
+}
+
+.streak-badge {
+  background: rgba(46, 204, 113, 0.2);
+  border: 1px solid #2ECC71;
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.badge-text {
+  color: #2ECC71;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Streak color variants */
+.streak-gray {
+  border-color: #666;
+  background: #1a1a1a;
+}
+
+.streak-gray .streak-icon {
+  opacity: 0.5;
+}
+
+.streak-blue {
+  border-color: #3498DB;
+  background: #1a2a3a;
+}
+
+.streak-blue .streak-badge {
+  background: rgba(52, 152, 219, 0.2);
+  border-color: #3498DB;
+}
+
+.streak-blue .badge-text {
+  color: #3498DB;
+}
+
+.streak-orange {
+  border-color: #F39C12;
+  background: #3a2f1a;
+}
+
+.streak-orange .streak-badge {
+  background: rgba(243, 156, 18, 0.2);
+  border-color: #F39C12;
+}
+
+.streak-orange .badge-text {
+  color: #F39C12;
+}
+
+.streak-green {
+  border-color: #2ECC71;
+  background: #1a3a1a;
+}
+
+.streak-green .streak-badge {
+  background: rgba(46, 204, 113, 0.2);
+  border-color: #2ECC71;
+}
+
+.streak-green .badge-text {
+  color: #2ECC71;
+}
+
+.streak-gold {
+  border-color: #F1C40F;
+  background: #3a3a1a;
+}
+
+.streak-gold .streak-icon {
+  animation: spin 3s linear infinite;
+}
+
+.streak-gold .streak-badge {
+  background: rgba(241, 196, 15, 0.2);
+  border-color: #F1C40F;
+}
+
+.streak-gold .badge-text {
+  color: #F1C40F;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .streak-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    min-height: auto;
+  }
+
+  .streak-number {
+    font-size: 2.5rem;
+  }
+
+  .streak-icon {
+    font-size: 3rem;
+  }
+
+  .streak-badge {
+    min-width: auto;
+  }
+}

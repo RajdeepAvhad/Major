@@ -1,0 +1,442 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.shopping-list-modal {
+  background: #2c2c2c;
+  border: 1px solid #444;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #444;
+}
+
+.modal-title {
+  color: #2ECC71;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #e8e8e8;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #444;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 8px 14px;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #e8e8e8;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: #2ECC71;
+  border-color: #2ECC71;
+  color: #1a1a1a;
+}
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid #444;
+  background: #1a1a1a;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-btn:hover {
+  color: #e8e8e8;
+}
+
+.tab-btn.active {
+  color: #2ECC71;
+  border-bottom-color: #2ECC71;
+}
+
+.modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* List View */
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-title {
+  color: #2ECC71;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #2ECC71;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  color: #e8e8e8;
+  font-size: 0.95rem;
+}
+
+.item-checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #444;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-quantity {
+  color: #aaa;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Checklist View */
+.checklist-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.items-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checklist-item:hover {
+  background: #2c2c2c;
+  border-color: #2ECC71;
+}
+
+.checklist-item input {
+  display: none;
+}
+
+.checkbox-visual {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  transition: all 0.2s ease;
+  color: #2ECC71;
+  font-weight: bold;
+}
+
+.checkbox-visual.checked {
+  background: #2ECC71;
+  border-color: #2ECC71;
+  color: #1a1a1a;
+}
+
+.item-label {
+  flex: 1;
+  color: #e8e8e8;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.item-label.checked {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.item-qty-label {
+  color: #aaa;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: right;
+}
+
+.checklist-progress {
+  margin-top: 20px;
+  padding: 16px;
+  background: #1a1a1a;
+  border-radius: 6px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #444;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #2ECC71;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Print View */
+.print-view {
+  background: white;
+  color: #000;
+  padding: 20px;
+}
+
+.print-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 15px;
+}
+
+.print-header h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.8rem;
+}
+
+.print-header p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.print-category {
+  margin-bottom: 25px;
+}
+
+.print-category h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #2ECC71;
+  border-bottom: 2px solid #2ECC71;
+  padding-bottom: 8px;
+}
+
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.print-table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.print-table td {
+  padding: 10px;
+  font-size: 0.95rem;
+}
+
+.print-checkbox {
+  width: 30px;
+  text-align: center;
+}
+
+.print-name {
+  flex: 1;
+}
+
+.print-quantity {
+  width: 80px;
+  text-align: right;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scroll styles for modal content */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #2ECC71;
+}
+
+@media print {
+  .modal-overlay {
+    background: transparent;
+  }
+
+  .shopping-list-modal {
+    box-shadow: none;
+    border: none;
+    max-height: 100%;
+  }
+
+  .modal-header,
+  .modal-actions,
+  .modal-tabs {
+    display: none;
+  }
+
+  .modal-content {
+    max-height: 100%;
+    padding: 0;
+  }
+
+  .print-view {
+    background: white;
+  }
+
+  .list-view,
+  .checklist-view {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .shopping-list-modal {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .modal-tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .action-btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

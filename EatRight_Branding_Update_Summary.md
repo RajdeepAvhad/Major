@@ -1,14 +1,13 @@
 # ✅ EatRight - Branding Update Complete
 
 ## Project Rename Summary
-- **Old Name**: WeCare_Food_Recoomendation_System-main
-- **New Name**: EatRight_Food_Recoomendation_System-main
+- ** Name**: EatRight_Food_Recoomendation_System-main
 - **Status**: ✅ COMPLETE
 
 ## Files Updated
 
 ### 1. **Project Structure**
-- ✅ Folder renamed: `WeCare_Food_Recoomendation_System-main` → `EatRight_Food_Recoomendation_System-main`
+- ✅ Folder named: `EatRight_Food_Recoomendation_System-main`
 
 ### 2. **Frontend Configuration**
 - ✅ `frontend/index.html` - Title already says "EatRight - Food Recommendation System"

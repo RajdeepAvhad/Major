@@ -31,8 +31,7 @@ SECRET_KEY = 'l#()$jrfbxp-k_9!_^!uz(=9u^q6mfp(=2(m_7pu5xw4v@ou8p'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'major-vaq9.vercel.app',
-    '*.vercel.app',
+    '.vercel.app',
     '127.0.0.1',
     'localhost',
 ]
@@ -66,14 +65,14 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://major-vaq9.vercel.app",
-    "https://*.vercel.app",
+    "https://major-final-liard.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "https://major-vaq9.vercel.app",
-    "https://*.vercel.app",
+    "https://major-final-liard.vercel.app",
 ]
 
 TEMPLATES = [

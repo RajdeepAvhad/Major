@@ -85,6 +85,10 @@ TEMPLATES = [
 
 ROOT_URLCONF = 'foodrec.urls'
 
+# WSGI and ASGI application
+WSGI_APPLICATION = 'foodrec.wsgi.application'
+ASGI_APPLICATION = 'foodrec.asgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

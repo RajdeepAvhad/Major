@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './Toast.css';
 
 let toastId = 0;
@@ -27,6 +27,19 @@ export const useToast = () => {
 };
 
 const ToastContainer = ({ toasts, removeToast }) => {
+  // Prevent scroll jump when toasts appear
+  useEffect(() => {
+    if (toasts.length > 0) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      
+      // Restore scroll position after render
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY);
+      });
+    }
+  }, [toasts.length]);
+
   return (
     <div className="toast-container">
       {toasts.map((toast) => (

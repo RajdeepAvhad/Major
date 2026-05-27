@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './api/AuthContext';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import DietPlannerPage from './pages/DietPlannerPage';
@@ -59,7 +58,6 @@ function MainLayout() {
         <Route path="/hrishikesh"   element={<DeveloperPage name="hrishikesh" />} />
         <Route path="/bhumika"      element={<DeveloperPage name="bhumika" />} />
       </Routes>
-      <Footer />
     </>
   );
 }

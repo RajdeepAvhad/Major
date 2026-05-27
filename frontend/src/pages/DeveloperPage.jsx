@@ -65,7 +65,7 @@ export default function DeveloperPage({ name }) {
               alt={dev.name}
               className="rounded-circle"
               style={{ width: 120, height: 120, objectFit: 'cover', border: '4px solid #2ECC71' }}
-              onError={e => { e.target.src = '/static/images/Gemini_Generated_Image_f0bd5kf0bd5kf0bd.png'; }}
+              onError={e => { e.target.src = '/static/images/logo.png'; }}
             />
             <div>
               <h3 style={{ color: '#2ECC71', marginBottom: 4 }}>{dev.name}</h3>

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Calendar, Clock3, Leaf, Ruler, Scale, UserRound } from 'lucide-react';
 import { apiGet, apiPost } from '../api/client';
+import GlassCard from '../components/GlassCard';
 
 export default function DietPlannerPage() {
   const navigate = useNavigate();
@@ -111,123 +114,114 @@ export default function DietPlannerPage() {
   };
 
   return (
-    <>
-      <div className="page-banner">
-        <h1>Diet Planner</h1>
-        <p>Enter your body metrics and we'll recommend a personalised meal plan.</p>
-      </div>
+    <motion.main className="page-motion">
+      <div className="form-shell">
+        <motion.div className="form-hero" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+          <h1 style={{ marginBottom: 8 }}>Diet Planner</h1>
+          <p style={{ color: '#cbd5e1', marginBottom: 12 }}>Step 1 of 2 — Your Details</p>
+          <div className="progress-track"><span /></div>
+        </motion.div>
 
-      <div className="planner-form">
-        <h2>Your Details</h2>
-        {error && <div className="alert alert-danger" style={{ background: '#3d3d3d', color: '#27AE60', border: '1px solid #27AE60' }}>{error}</div>}
+        <GlassCard className="p-4 p-md-5">
+          <h2 style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 18 }}><Leaf size={18} color="#22c55e" /> Your Details</h2>
+          {error && <div className="alert alert-danger" style={{ background: '#3d3d3d', color: '#27AE60', border: '1px solid #27AE60' }}>{error}</div>}
 
-        <form onSubmit={handleSubmit}>
-          <div className="row g-3">
-            <div className="col-6">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Age (years)</label>
-              <input type="number" className="form-control" min="1" max="120" value={form.age}
-                onChange={e => set('age', e.target.value)} required placeholder="e.g. 22"
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }} />
-            </div>
-            <div className="col-6">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Weight (kg)</label>
-              <input type="number" className="form-control" min="1" value={form.weight}
-                onChange={e => set('weight', e.target.value)} required placeholder="e.g. 70"
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }} />
-            </div>
-            <div className="col-6">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Height (cm)</label>
-              <input type="number" className="form-control" min="1" value={form.height}
-                onChange={e => set('height', e.target.value)} required placeholder="e.g. 170"
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }} />
-            </div>
-            <div className="col-6">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Body Fat % <small style={{ color: '#999' }}>(optional)</small></label>
-              <input type="number" className="form-control" step="0.1" value={form.bodyfat}
-                onChange={e => set('bodyfat', e.target.value)} placeholder="Leave blank to auto-calculate"
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }} />
-              {bfPreview && !form.bodyfat && (
-                <small style={{ color: '#999' }}>Auto-calculated: ~{bfPreview}%</small>
-              )}
-            </div>
-
-            <div className="col-12">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Gender</label>
-              <div className="d-flex gap-3">
-                {['male', 'female'].map(g => (
-                  <label key={g} style={{ cursor: 'pointer', fontWeight: form.gender === g ? 700 : 400, color: '#e8e8e8' }}>
-                    <input type="radio" name="gender" value={g} checked={form.gender === g}
-                      onChange={() => set('gender', g)} style={{ marginRight: 6 }} />
-                    {g.charAt(0).toUpperCase() + g.slice(1)}
-                  </label>
-                ))}
+          <form onSubmit={handleSubmit}>
+            <div className="floating-grid">
+              <div className={`floating-field ${form.age ? 'has-value' : ''}`}>
+                <UserRound size={16} className="field-icon" />
+                <input type="number" min="1" max="120" value={form.age} onChange={e => set('age', e.target.value)} required />
+                <label>Age (years)</label>
+              </div>
+              <div className={`floating-field ${form.weight ? 'has-value' : ''}`}>
+                <Scale size={16} className="field-icon" />
+                <input type="number" min="1" value={form.weight} onChange={e => set('weight', e.target.value)} required />
+                <label>Weight (kg)</label>
+              </div>
+              <div className={`floating-field ${form.height ? 'has-value' : ''}`}>
+                <Ruler size={16} className="field-icon" />
+                <input type="number" min="1" value={form.height} onChange={e => set('height', e.target.value)} required />
+                <label>Height (cm)</label>
+              </div>
+              <div className={`floating-field ${form.bodyfat ? 'has-value' : ''}`}>
+                <Scale size={16} className="field-icon" />
+                <input type="number" step="0.1" value={form.bodyfat} onChange={e => set('bodyfat', e.target.value)} />
+                <label>Body Fat % (optional)</label>
               </div>
             </div>
 
-            <div className="col-12">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Goal</label>
-              <select className="form-select" value={form.goal} onChange={e => set('goal', e.target.value)}
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }}>
-                <option value="healthy">Maintain / Stay Healthy</option>
-                <option value="weight loss">Weight Loss</option>
-                <option value="weight gain">Weight Gain</option>
-              </select>
+            {bfPreview && !form.bodyfat && <small style={{ color: '#94a3b8' }}>Auto-calculated preview: ~{bfPreview}%</small>}
+
+            <div style={{ marginTop: 18, marginBottom: 16 }}>
+              <label style={{ display: 'block', marginBottom: 6 }}>Gender</label>
+              <div className="toggle-pill">
+                <div className={`toggle-pill__slider ${form.gender === 'female' ? 'female' : ''}`} />
+                <button type="button" onClick={() => set('gender', 'male')}>Male</button>
+                <button type="button" onClick={() => set('gender', 'female')}>Female</button>
+              </div>
             </div>
 
-            <div className="col-12">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Activity Level</label>
-              <select className="form-select" value={form.activity} onChange={e => set('activity', e.target.value)}
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }}>
-                <option value="Very Light">Very Light (sedentary)</option>
-                <option value="Light">Light (1-3 days/week)</option>
-                <option value="Heavy">Moderate (3-5 days/week)</option>
-                <option value="Very Heavy">Very Heavy (6-7 days/week)</option>
-              </select>
+            <div className="floating-grid">
+              <div className={`floating-field ${form.goal ? 'has-value' : ''}`}>
+                <Leaf size={16} className="field-icon" />
+                <select value={form.goal} onChange={e => set('goal', e.target.value)}>
+                  <option value="healthy">Maintain / Stay Healthy</option>
+                  <option value="weight loss">Weight Loss</option>
+                  <option value="weight gain">Weight Gain</option>
+                </select>
+                <label>Goal</label>
+              </div>
+
+              <div className={`floating-field ${form.activity ? 'has-value' : ''}`}>
+                <Leaf size={16} className="field-icon" />
+                <select value={form.activity} onChange={e => set('activity', e.target.value)}>
+                  <option value="Very Light">Very Light (sedentary)</option>
+                  <option value="Light">Light (1-3 days/week)</option>
+                  <option value="Heavy">Moderate (3-5 days/week)</option>
+                  <option value="Very Heavy">Very Heavy (6-7 days/week)</option>
+                </select>
+                <label>Activity Level</label>
+              </div>
+
+              <div className={`floating-field ${form.planPeriod ? 'has-value' : ''}`}>
+                <Calendar size={16} className="field-icon" />
+                <select value={form.planPeriod} onChange={e => set('planPeriod', e.target.value)}>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                </select>
+                <label>Plan Period</label>
+              </div>
+
+              <div className={`floating-field ${form.planDate ? 'has-value' : ''}`}>
+                <Calendar size={16} className="field-icon" />
+                <input type="date" value={form.planDate} onChange={e => set('planDate', e.target.value)} required />
+                <label>Plan Start Date</label>
+              </div>
             </div>
 
-            <div className="col-6">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Plan Period</label>
-              <select className="form-select" value={form.planPeriod} onChange={e => set('planPeriod', e.target.value)}
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }}>
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-              </select>
+            <div className={`floating-field ${form.reminderTime ? 'has-value' : ''}`} style={{ marginTop: 14 }}>
+              <Clock3 size={16} className="field-icon" />
+              <input type="time" value={form.reminderTime} onChange={e => set('reminderTime', e.target.value)} />
+              <label>Reminder Time</label>
             </div>
 
-            <div className="col-6">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Plan Start Date</label>
-              <input
-                type="date"
-                className="form-control"
-                value={form.planDate}
-                onChange={e => set('planDate', e.target.value)}
-                required
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }}
-              />
-            </div>
-
-            <div className="col-6">
-              <label className="form-label" style={{ color: '#e8e8e8' }}>Reminder Time</label>
-              <input
-                type="time"
-                className="form-control"
-                value={form.reminderTime}
-                onChange={e => set('reminderTime', e.target.value)}
-                style={{ background: '#3d3d3d', color: '#e8e8e8', border: '1px solid #555' }}
-              />
-            </div>
-
-            <div className="col-12 mt-3">
-              <button type="submit" className="btn-brand w-100" style={{ fontSize: 16 }} disabled={loading || !form.gender}>
+            <motion.button whileTap={{ scale: 0.97 }} type="submit" className="btn-green shimmer-btn w-100" style={{ marginTop: 18, minHeight: 56 }} disabled={loading || !form.gender}>
+              <AnimatePresence mode="wait">
                 {loading ? (
-                  <><span className="spinner-border spinner-border-sm me-2" role="status"></span>Analysing…</>
-                ) : 'Get My Diet Plan'}
-              </button>
-            </div>
-          </div>
-        </form>
+                  <motion.span key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <span className="spinner-border spinner-border-sm me-2" role="status"></span>Generating Plan...
+                  </motion.span>
+                ) : (
+                  <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    Get My Diet Plan
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </form>
+        </GlassCard>
       </div>
-    </>
+    </motion.main>
   );
 }

@@ -1,0 +1,183 @@
+Food_items,Breakfast,Lunch,Dinner,VegNovVeg,Calories,Fats,Proteins,Iron,Calcium,Sodium,Potassium,Carbohydrates,Fibre,VitaminD,Sugars,imagepath
+Almonds,1,0,0,0,579.0,50.0,21.0,3.71,269.0,1.0,733.0,22.0,13.0,0.0,4.4,/static/images/food/Almonds.jpg
+Aloo Sabzi,0,1,1,0,108.0,3.2,2.1,0.8,12.0,248.0,421.0,18.0,2.4,0.0,1.2,
+American Cheese,1,0,0,0,331.0,24.0,20.0,0.84,497.0,966.0,363.0,8.3,0.0,0.0,0.0,/static/images/food/American_cheese.jpg
+Apples,1,0,0,0,52.0,0.2,0.3,0.12,6.0,1.0,107.0,14.0,24.0,0.0,10.0,/static/images/food/apples.jpg
+"Apples, Fuji, With Skin, Raw",0,1,1,0,65.0,0.2,0.2,0.0,6.0,1.0,104.0,15.7,2.1,0.0,0.0,/static/images/food/apples.jpg
+"Apples, Gala, With Skin, Raw",0,1,1,0,61.0,0.2,0.1,0.1,7.0,0.0,106.0,14.8,2.1,0.0,0.0,/static/images/food/apples.jpg
+"Apples, Granny Smith, With Skin, Raw",0,1,1,0,59.0,0.1,0.3,0.1,5.0,0.0,116.0,14.2,2.5,0.0,0.0,/static/images/food/apples.jpg
+"Apples, Honeycrisp, With Skin, Raw",0,1,1,0,60.0,0.1,0.1,0.0,4.0,0.0,98.0,14.7,1.7,0.0,0.0,/static/images/food/apples.jpg
+"Apples, Red Delicious, With Skin, Raw",0,1,1,0,62.0,0.2,0.2,0.0,5.0,0.0,95.0,14.8,2.0,0.0,0.0,/static/images/food/apples.jpg
+Asparagus Cooked,0,1,1,0,22.0,0.2,2.4,0.91,23.0,14.0,224.0,4.1,2.0,0.0,1.3,/static/images/food/Asparagus_Cooked.jpg
+Avocados,1,0,0,0,160.0,15.0,2.0,0.55,12.0,7.0,485.0,8.5,6.7,0.0,0.7,/static/images/food/avocados.jpg
+Bacon Cooked,0,0,1,1,146.0,2.8,28.0,0.56,7.0,993.0,999.0,1.8,0.0,0.0,1.2,/static/images/food/Bacon_cooked.jpg
+Bagels Made In Wheat,0,1,1,0,250.0,1.5,10.0,2.76,20.0,439.0,165.0,49.0,4.1,0.0,6.1,https://img.spoonacular.com/recipes/637520-312x231.jpg
+Banana Chips,1,0,0,0,519.0,34.0,2.3,1.25,18.0,6.0,536.0,58.0,7.7,0.0,35.0,/static/images/food/Banana_Chips.jpg
+Bananas,1,0,0,0,89.0,0.3,1.1,0.26,5.0,1.0,358.0,23.0,2.6,0.0,12.0,/static/images/food/bananas.jpg
+"Bananas, Overripe, Raw",0,1,1,0,85.0,0.2,0.7,0.0,0.0,0.0,0.0,20.1,1.7,0.0,0.0,/static/images/food/bananas.jpg
+"Bananas, Ripe And Slightly Ripe, Raw",0,1,1,0,97.0,0.3,0.7,0.0,5.0,0.0,326.0,23.0,1.7,0.0,0.0,/static/images/food/bananas.jpg
+Basmati Rice Cooked,0,1,1,0,121.0,0.4,2.9,0.2,10.0,1.0,35.0,25.0,0.4,0.0,0.1,https://spoonacular.com/cdn/ingredients_250x250/rice-white-long-grain-or-basmatii-cooked.jpg
+Beans,0,1,1,0,31.0,0.2,1.8,1.03,37.0,6.0,211.0,7.0,2.7,0.0,3.3,/static/images/food/Beans.jpg
+"Beans, Snap, Green, Canned, Regular Pack, Drained Solids",0,1,1,0,21.0,0.4,1.0,0.8,36.0,282.0,97.0,4.1,0.0,0.0,0.0,/static/images/food/Beans.jpg
+Beef Sticks,1,0,0,1,550.0,50.0,22.0,3.4,68.0,1531.0,257.0,5.4,0.0,0.0,0.0,/static/images/food/Beef_sticks.jpg
+Berries,1,0,0,0,349.0,0.4,14.0,6.8,190.0,298.0,77.0,77.0,13.0,0.0,46.0,https://www.themealdb.com/images/media/meals/oe8rg51699014028.jpg
+Bhaji Pav,1,0,0,0,151.0,2.4,9.0,37.4,3.4,438.0,180.0,29.3,1.0,0.0,1.35,/static/images/food/Bhaji_Pav.jpg
+Boiled Potatoes,1,1,1,0,87.0,0.1,1.9,0.31,5.0,240.0,379.0,20.0,2.0,0.0,0.9,/static/images/food/Boiled_Potatoes.jpg
+"Broccoli, Raw",0,1,1,0,32.0,0.3,2.6,0.7,46.0,36.0,303.0,6.3,2.4,0.0,0.0,https://www.themealdb.com/images/media/meals/tvvxpv1511191952.jpg
+Brocolli,0,1,1,0,25.0,0.5,3.8,1.27,118.0,56.0,343.0,3.1,2.8,0.0,0.6,/static/images/food/Brocolli.jpg
+Brown Rice,0,1,1,0,362.0,2.7,7.5,1.8,33.0,4.0,268.0,76.0,3.4,0.0,0.0,/static/images/food/Brown_Rice.jpg
+Brownie,1,0,0,0,407.0,6.2,4.4,3.81,17.0,457.0,51.0,84.0,2.9,0.0,55.0,/static/images/food/Brownie.jpg
+"Carrots, Frozen, Unprepared",0,1,1,0,37.0,0.5,0.8,0.4,33.0,66.0,210.0,7.9,3.2,0.0,0.0,https://www.themealdb.com/images/media/meals/o2cd4r1764113576.jpg
+"Carrots, Frozen, Unprepared (Includes Foods For Usda'S Food Distribution Program)",0,1,1,0,37.0,0.5,0.8,0.4,33.0,66.0,210.0,7.9,3.2,0.0,0.0,https://www.themealdb.com/images/media/meals/o2cd4r1764113576.jpg
+Cashew Nuts,1,0,0,0,553.0,44.0,18.0,6.68,37.0,12.0,660.0,30.0,3.3,0.0,5.9,https://img.spoonacular.com/recipes/637260-312x231.jpg
+Cauliflower,0,1,1,0,32.0,0.3,3.0,0.72,32.0,259.0,278.0,6.3,3.3,0.0,0.0,/static/images/food/Cauliflower.jpg
+Cereals-Corn Flakes,1,0,0,0,384.0,0.9,5.9,19.4,2.0,571.0,107.0,88.0,2.7,100.0,7.8,/static/images/food/Cereals_Corn_Flakes.jpg
+Chappati,0,1,1,0,297.0,7.5,11.0,3.01,93.0,409.0,266.0,46.0,4.9,0.0,2.7,/static/images/food/Chappati.jpg
+Cheese Burger,0,1,1,0,256.0,12.0,13.0,2.78,92.0,660.0,178.0,25.0,1.4,0.0,0.0,/static/images/food/Cheese_Burger.jpg
+Cheese Pizza,0,0,1,0,276.0,11.0,11.0,2.47,192.0,580.0,170.0,33.0,2.1,0.0,2.5,/static/images/food/Cheese_Pizza.jpg
+"Cheese, American, Restaurant",1,1,1,0,375.0,31.1,17.5,0.2,508.0,1600.0,173.0,6.4,0.0,0.0,0.0,/static/images/food/American_cheese.jpg
+"Cheese, Cheddar",1,1,1,0,408.0,34.0,23.3,0.2,707.0,654.0,77.0,2.4,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+"Cheese, Cottage, Lowfat, 2% Milkfat",1,1,1,0,84.0,2.3,11.0,0.1,103.0,321.0,120.0,4.3,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+"Cheese, Dry White, Queso Seco",1,1,1,0,326.0,24.3,24.5,0.2,661.0,1810.0,116.0,2.1,0.0,1.8,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+"Cheese, Mozzarella, Low Moisture, Part-Skim",1,1,1,0,298.0,20.4,23.7,0.2,693.0,699.0,116.0,4.4,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+"Cheese, Parmesan, Grated",1,1,1,0,421.0,28.0,29.6,0.4,884.0,1750.0,184.0,12.4,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+"Cheese, Pasteurized Process, American, Vitamin D Fortified",1,1,1,0,366.0,30.6,18.0,0.5,866.0,1660.0,149.0,5.3,0.0,7.5,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+"Cheese, Ricotta, Whole Milk",1,1,1,0,157.0,11.0,7.8,0.1,224.0,105.0,230.0,6.9,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+"Cheese, Swiss",1,1,1,0,393.0,31.0,27.0,0.1,890.0,185.0,71.0,1.4,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg
+Chia Seeds,1,0,0,0,486.0,31.0,17.0,7.72,631.0,16.0,407.0,42.0,34.0,0.0,0.0,/static/images/food/Chia_seeds.jpg
+Chicken Burger,0,1,1,1,292.0,15.0,18.0,0.62,13.0,859.0,315.0,20.0,1.3,0.0,0.0,/static/images/food/Chicken_Burger.jpg
+Chicken Curry,0,1,1,1,195.0,11.2,18.4,1.4,28.0,468.0,312.0,6.8,1.2,0.2,2.8,https://www.themealdb.com/images/media/meals/vwrpps1503068729.jpg
+Chicken Popcorn,0,1,1,1,351.0,22.0,18.0,1.42,32.0,1140.0,288.0,21.0,1.0,0.0,0.0,/static/images/food/Chicken_Popcorn.jpg
+Chicken Sandwich,0,1,1,1,257.0,12.0,15.0,1.32,92.0,605.0,256.0,23.0,1.2,0.0,5.0,/static/images/food/Chicken_Sandwich.jpg
+Chicken Strips,0,0,1,1,295.0,15.0,19.0,0.72,11.0,798.0,334.0,22.0,1.1,0.0,0.3,/static/images/food/Chicken_Strips.jpg
+"Chicken, Broiler Or Fryers, Breast, Skinless, Boneless, Meat Only, Cooked, Braised",0,1,1,1,166.0,3.2,32.1,0.5,6.0,47.0,343.0,0.0,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg
+"Chicken, Broilers Or Fryers, Drumstick, Meat Only, Cooked, Braised",0,1,1,1,156.0,6.0,23.9,0.9,12.0,117.0,239.0,0.0,0.0,0.1,0.0,https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg
+Chocolate Doughnuts,0,1,1,0,452.0,25.0,4.9,4.0,24.0,326.0,201.0,51.0,1.9,0.0,27.0,/static/images/food/Chocolate_Doughnuts.jpg
+Chocolate Icecream,0,0,1,0,216.0,11.0,3.8,0.93,109.0,76.0,249.0,28.0,1.2,0.0,25.0,/static/images/food/Chocolate_Icecream.jpg
+Chocolate Milk,1,0,0,0,535.0,30.0,7.7,2.35,189.0,79.0,372.0,59.0,3.4,0.0,52.0,/static/images/food/Chocolate_milk.jpg
+Chole Cooked,0,1,1,0,164.0,2.6,8.9,2.9,49.0,7.0,291.0,27.0,7.6,0.0,4.7,https://img.spoonacular.com/recipes/640656-312x231.jpg
+Coffee,1,0,0,0,2.0,0.0,0.3,0.02,2.0,1.0,50.0,0.2,0.0,0.0,0.0,/static/images/food/Coffee.jpg
+Corn,1,1,1,0,97.0,1.4,3.3,0.55,2.0,253.0,3.3,22.0,2.7,0.0,7.7,/static/images/food/Corn.jpg
+Cottage Cheese With Vegetables,0,1,1,0,95.0,4.2,11.0,0.1,56.0,403.0,86.0,3.0,0.1,0.0,0.4,/static/images/food/Cottage_cheese_with_vegetables.jpg
+Dal Cooked,0,1,1,0,116.0,0.5,9.0,3.3,27.0,6.0,369.0,20.0,8.0,0.0,1.2,https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg
+Dal Makhani,0,1,1,0,109.0,8.5,2.1,35.2,8.3,243.0,366.0,6.3,1.5,0.0,3.29,/static/images/food/Dal_Makhani.jpg
+Dark Chocolates,0,0,1,0,556.0,32.0,5.5,2.13,30.0,6.0,502.0,60.0,6.5,0.0,48.0,/static/images/food/Dark_Chocolate.jpg
+Dosa,1,1,1,0,168.0,3.7,4.5,8.0,0.7,94.0,76.0,29.0,0.9,0.0,0.1,/static/images/food/Dosa.jpg
+Egg Yolk Cooked,1,0,0,1,196.0,15.0,14.0,1.89,62.0,207.0,152.0,0.8,0.0,88.0,0.4,/static/images/food/Egg_Yolk_cooked.jpg
+"Egg, White, Dried",1,1,1,0,376.0,0.6,79.9,0.0,104.0,1250.0,959.0,6.0,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/1529446137.jpg
+"Egg, White, Raw, Frozen, Pasteurized",1,1,1,0,48.0,0.2,10.1,0.2,9.0,144.0,130.0,0.7,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/1529446137.jpg
+"Egg, Whole, Dried",1,1,1,0,575.0,39.8,48.1,7.0,220.0,485.0,468.0,1.9,0.0,9.7,0.0,https://www.themealdb.com/images/media/meals/1529446137.jpg
+"Egg, Whole, Raw, Frozen, Pasteurized",1,1,1,0,150.0,10.3,12.3,1.8,55.0,121.0,117.0,0.9,0.0,2.3,0.0,https://www.themealdb.com/images/media/meals/1529446137.jpg
+"Egg, Yolk, Dried",1,1,1,0,654.0,55.5,34.2,9.3,270.0,149.0,231.0,1.1,0.0,15.7,0.0,https://www.themealdb.com/images/media/meals/1529446137.jpg
+"Egg, Yolk, Raw, Frozen, Pasteurized",1,1,1,0,296.0,25.1,15.6,4.1,119.0,66.0,102.0,0.6,0.0,5.8,0.0,https://www.themealdb.com/images/media/meals/1529446137.jpg
+"Eggs, Grade A, Large, Egg White",1,1,1,0,55.0,0.0,10.7,0.0,0.0,0.0,0.0,2.4,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/1550440197.jpg
+"Eggs, Grade A, Large, Egg Whole",1,1,1,0,148.0,10.0,12.4,1.7,48.0,129.0,132.0,1.0,0.0,2.5,0.0,https://www.themealdb.com/images/media/meals/1550440197.jpg
+"Eggs, Grade A, Large, Egg Yolk",1,1,1,0,334.0,28.8,16.2,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/1550440197.jpg
+"Figs, Dried, Uncooked",0,1,1,0,249.0,0.9,3.3,2.0,162.0,10.0,680.0,63.9,9.8,0.0,0.0,https://www.themealdb.com/images/media/meals/dokbyt1779645030.jpg
+"Fish, Haddock, Raw",0,1,1,1,74.0,0.4,16.3,0.2,11.0,213.0,286.0,0.0,0.0,0.5,0.0,https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg
+"Fish, Pollock, Raw",0,1,1,1,56.0,0.4,12.3,0.2,15.0,333.0,160.0,0.0,0.0,0.2,0.0,https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg
+"Fish, Tuna, Light, Canned In Water, Drained Solids",0,1,1,1,90.0,0.9,19.0,1.7,18.0,219.0,176.0,0.1,0.0,1.2,0.0,/static/images/food/Tuna_fish.jpg
+"Flour, Bread, White, Enriched, Unbleached",1,1,1,0,363.0,1.6,14.3,5.6,19.0,3.0,127.0,72.8,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Corn, Yellow, Fine Meal, Enriched",1,1,1,0,364.0,1.7,6.2,4.4,0.0,0.0,144.0,80.8,4.3,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Pastry, Unenriched, Unbleached",1,1,1,0,358.0,1.6,8.8,0.9,17.0,1.0,142.0,77.2,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Rice, Brown",1,1,1,0,365.2,3.8,7.2,1.5,10.0,1.0,265.0,75.5,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Rice, Glutinous",1,1,1,0,358.0,1.2,6.7,0.3,10.0,6.0,80.0,80.1,0.0,0.0,0.0,https://img.spoonacular.com/recipes/644914-312x231.jpg
+"Flour, Rice, White, Unenriched",1,1,1,0,359.0,1.3,6.9,0.2,6.0,5.0,75.0,79.8,0.5,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Soy, Defatted",0,1,1,0,366.0,3.3,51.1,7.3,338.0,2.0,2480.0,32.9,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Soy, Full-Fat",0,1,1,0,452.0,20.7,38.6,9.5,258.0,2.0,1860.0,27.9,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Wheat, All-Purpose, Enriched, Bleached",1,1,1,0,366.0,1.5,10.9,5.6,19.0,2.0,136.0,77.3,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Wheat, All-Purpose, Enriched, Unbleached",1,1,1,0,358.0,1.5,13.1,5.4,21.0,4.0,135.0,73.2,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Wheat, All-Purpose, Unenriched, Unbleached",1,1,1,0,362.0,1.7,12.0,1.2,22.0,2.0,150.0,74.6,3.0,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+"Flour, Whole Wheat, Unenriched",1,1,1,0,370.0,2.7,15.1,3.9,38.0,3.0,376.0,71.2,10.6,0.0,0.0,https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg
+French Fries,0,1,1,0,289.0,14.0,3.5,0.91,17.0,357.0,545.0,37.0,3.9,0.0,0.3,/static/images/food/French_Fries.jpg
+Fried Shrimp,0,0,1,1,319.0,20.0,14.0,1.54,47.0,1400.0,128.0,21.0,1.5,0.0,0.8,/static/images/food/Fried_Shrimp.jpg
+"Garlic, Raw",0,1,1,0,143.0,0.4,6.6,0.0,0.0,0.0,0.0,28.2,2.7,0.0,0.0,https://www.themealdb.com/images/media/meals/u2lhqb1763331899.jpg
+Goat Meat,0,1,1,1,109.0,2.3,21.0,2.83,13.0,82.0,385.0,57.0,0.0,0.0,0.0,/static/images/food/Goat_meat.jpg
+"Grapefruit Juice, White, Canned Or Bottled, Unsweetened",0,1,1,0,37.0,0.7,0.6,0.1,16.0,1.0,141.0,7.6,0.2,0.0,0.0,https://img.spoonacular.com/recipes/1095702-312x231.jpg
+Grapes,1,0,0,0,93.0,2.1,5.6,2.63,363.0,9.0,272.0,17.0,11.0,0.0,6.3,/static/images/food/Grapes.jpg
+Greek Yogurt Plain,1,1,1,0,73.0,1.9,10.0,0.04,115.0,34.0,141.0,3.9,0.0,0.0,3.6,/static/images/food/Greek_yogurt_plain.jpg
+Green Tea,1,0,0,0,1.0,0.0,0.2,0.02,0.0,1.0,0.2,0.0,0.0,0.0,0.0,/static/images/food/Green_Tea.jpg
+Honey,1,0,1,0,304.0,0.0,0.3,0.42,6.0,4.0,52.0,82.0,0.2,0.0,82.0,/static/images/food/Honey.jpg
+"Hummus, Commercial",0,1,1,0,229.0,17.1,7.4,2.4,41.0,438.0,289.0,14.9,5.4,0.0,0.0,https://www.themealdb.com/images/media/meals/gpon5u1763801180.jpg
+Idli,1,1,1,0,156.0,1.7,5.0,17.2,4.0,207.0,63.0,30.2,2.1,0.0,0.74,/static/images/food/Idli.jpg
+"Kale, Frozen, Cooked, Boiled, Drained, Without Salt",0,1,1,0,36.0,1.2,2.9,0.8,150.0,16.0,144.0,5.3,0.0,0.0,0.0,https://img.spoonacular.com/recipes/644387-312x231.jpg
+"Kale, Raw",0,1,1,0,35.0,1.5,2.9,1.6,254.0,53.0,348.0,4.4,4.1,0.0,0.0,https://img.spoonacular.com/recipes/644387-312x231.jpg
+"Ketchup, Restaurant",0,1,1,0,117.0,0.6,1.1,0.4,14.0,949.0,249.0,26.8,0.0,0.0,0.0,https://img.spoonacular.com/recipes/653682-312x231.jpg
+Khichdi,0,1,1,0,120.0,2.1,4.2,1.4,22.0,168.0,142.0,21.0,2.8,0.0,0.6,
+"Kiwifruit, Green, Raw",0,1,1,0,58.0,0.4,1.1,0.2,35.0,5.0,198.0,14.0,3.0,0.0,0.0,https://img.spoonacular.com/recipes/661433-312x231.jpg
+Lentils,0,1,1,0,101.0,0.5,8.8,3.1,14.0,246.0,284.0,21.0,0.0,0.0,0.0,/static/images/food/Lentils.jpg
+"Lettuce, Cos Or Romaine, Raw",0,1,1,0,17.0,0.3,1.2,1.0,35.0,0.0,253.0,3.2,1.8,0.0,0.0,https://img.spoonacular.com/recipes/638603-312x231.jpg
+Macroni N Cheese,0,1,1,0,194.0,12.0,6.5,50.0,145.0,375.0,127.0,16.0,1.1,0.0,2.8,/static/images/food/Macroni_n_Cheese.jpg
+Marshmallows,0,0,1,0,318.0,0.2,1.8,0.23,3.0,80.0,5.0,81.0,0.1,0.0,58.0,/static/images/food/Marshmallows.jpg
+"Melons, Cantaloupe, Raw",0,1,1,0,34.0,0.2,0.8,0.4,9.0,30.0,157.0,8.2,0.8,0.0,0.0,https://img.spoonacular.com/recipes/636926-312x231.jpg
+Mexican Rice,0,1,1,0,195.0,4.9,3.6,1.18,39.0,677.0,131.0,34.0,1.1,0.0,1.4,/static/images/food/Mexican_Rice.jpg
+Milk,1,0,1,0,97.0,6.9,3.8,0.12,169.0,52.0,178.0,5.2,0.0,0.0,0.0,/static/images/food/Milk.jpg
+"Milk, Lowfat, Fluid, 1% Milkfat, With Added Vitamin A And Vitamin D",1,1,1,0,43.0,1.0,3.4,0.0,126.0,39.0,159.0,5.2,0.0,1.1,0.0,/static/images/food/Milk.jpg
+"Milk, Nonfat, Fluid, With Added Vitamin A And Vitamin D (Fat Free Or Skim)",1,1,1,0,34.0,0.1,3.4,0.0,132.0,41.0,167.0,4.9,0.0,1.1,0.0,/static/images/food/Milk.jpg
+"Milk, Reduced Fat, Fluid, 2% Milkfat, With Added Vitamin A And Vitamin D",1,1,1,0,50.0,1.9,3.4,0.0,126.0,39.0,159.0,4.9,0.0,1.1,0.0,/static/images/food/Milk.jpg
+"Milk, Whole, 3.25% Milkfat, With Added Vitamin D",1,1,1,0,60.0,3.2,3.3,0.0,123.0,38.0,150.0,4.7,0.0,1.0,0.0,/static/images/food/Milk.jpg
+Mushrooms,1,1,1,0,22.0,0.3,3.1,0.5,3.0,5.0,318.0,3.3,1.0,7.0,2.0,/static/images/food/Mushrooms.jpg
+Nachos,1,1,1,0,350.0,22.0,4.3,0.75,63.0,313.0,362.0,35.0,3.2,0.0,2.2,/static/images/food/Nachos.jpg
+"Nectarines, Raw",0,1,1,0,39.0,0.3,1.1,0.3,2.0,13.0,131.0,9.2,1.5,0.0,0.0,https://img.spoonacular.com/recipes/650809-312x231.jpg
+Noodles,0,1,1,0,108.0,0.2,1.8,0.14,4.0,19.0,4.0,24.0,1.0,0.0,0.0,/static/images/food/Noodles.jpg
+"Nuts, Almonds, Dry Roasted, With Salt Added",0,1,1,0,620.0,57.8,20.4,3.2,273.0,256.0,684.0,16.2,11.0,0.0,0.0,https://www.themealdb.com/images/media/meals/cz1d6v1777627421.jpg
+Oat Bran Cooked,1,0,0,0,40.0,0.9,3.2,0.88,10.0,1.0,92.0,11.0,2.6,0.0,0.0,/static/images/food/Oat_Bran_Cooked.jpg
+"Olives, Green, Manzanilla, Stuffed With Pimiento",0,1,1,0,130.0,12.9,1.2,0.3,121.0,1620.0,43.0,5.0,4.0,0.0,0.0,https://www.themealdb.com/images/media/meals/21yc5s1760524759.jpg
+"Onion Rings, Breaded, Par Fried, Frozen, Prepared, Heated In Oven",0,1,1,0,288.0,14.4,4.5,1.1,28.0,374.0,135.0,36.3,2.4,0.0,0.0,
+Onions,0,1,1,0,40.0,0.1,1.1,0.21,23.0,4.0,146.0,9.3,1.7,0.0,4.2,/static/images/food/Onion.jpg
+"Onions, Red, Raw",0,1,1,0,44.0,0.1,0.9,0.2,17.0,1.0,197.0,9.9,2.2,0.0,0.0,/static/images/food/Onion.jpg
+"Onions, White, Raw",0,1,1,0,35.0,0.1,0.9,0.2,21.0,2.0,141.0,7.7,1.2,0.0,0.0,/static/images/food/Onion.jpg
+"Onions, Yellow, Raw",0,1,1,0,38.0,0.0,0.8,0.3,15.0,1.0,182.0,8.6,1.9,0.0,0.0,/static/images/food/Onion.jpg
+Orange,1,0,0,0,97.0,0.2,1.5,0.8,161.0,3.0,212.0,25.0,11.0,0.0,0.0,https://www.themealdb.com/images/media/meals/y4jpgq1560459207.jpg
+Orange Juice,1,0,0,0,45.0,0.2,0.7,0.2,11.0,1.0,200.0,10.0,0.2,0.0,8.4,/static/images/food/Orange_juice.jpg
+"Oranges, Raw, Navels",0,1,1,0,47.0,0.2,0.9,0.3,43.0,9.0,166.0,11.8,2.0,0.0,0.0,/static/images/food/Oranges.jpg
+"Oranges, Raw, Navels (Includes Foods For Usda'S Food Distribution Program)",0,1,1,0,47.0,0.2,0.9,0.3,43.0,9.0,166.0,11.8,2.0,0.0,0.0,/static/images/food/Oranges.jpg
+Oyster Cooked,0,1,1,1,159.0,4.0,29.0,4.9,6.0,81.0,409.0,0.0,0.0,0.0,0.0,/static/images/food/Oyster_cooked.jpg
+Palak Paneer,0,1,1,0,168.0,12.4,9.8,2.7,198.0,312.0,448.0,8.2,2.8,0.0,2.1,
+Paneer,1,1,1,0,265.0,20.8,18.3,0.2,480.0,18.0,138.0,1.2,0.0,0.3,2.6,https://www.themealdb.com/images/media/meals/xxpqsy1511452222.jpg
+Pasta Canned With Tomato Sauce,0,1,1,0,71.0,0.7,2.2,0.91,13.0,381.0,192.0,14.0,0.9,0.0,4.0,
+Pasta With Corn Homemade,0,1,1,0,126.0,0.7,2.6,0.25,1.0,0.0,31.0,28.0,4.8,0.0,0.0,/static/images/food/Pasta_with_corn_homemade.jpg
+"Peaches, Yellow, Raw",0,1,1,0,42.0,0.3,0.9,0.3,4.0,13.0,122.0,10.1,1.5,0.0,0.0,
+"Peanut Butter, Smooth Style, With Salt",0,1,1,0,597.0,51.1,22.5,1.7,49.0,429.0,564.0,22.3,4.8,0.0,0.0,https://www.themealdb.com/images/media/meals/1544384070.jpg
+Pears,1,0,0,0,57.0,0.1,0.4,0.18,9.0,1.0,116.0,15.0,3.1,0.0,9.8,/static/images/food/Pears.jpg
+"Pears, Raw, Bartlett",0,1,1,0,57.0,0.2,0.4,0.2,8.0,7.0,87.0,15.1,3.1,0.0,0.0,/static/images/food/Pears.jpg
+"Pears, Raw, Bartlett (Includes Foods For Usda'S Food Distribution Program)",0,1,1,0,57.0,0.2,0.4,0.2,8.0,7.0,87.0,15.1,3.1,0.0,0.0,/static/images/food/Pears.jpg
+Peas,0,1,1,0,81.0,0.4,5.4,1.47,25.0,5.0,244.0,14.0,5.7,0.0,5.7,/static/images/food/Peas.jpg
+Peproni Pizza,0,0,1,0,298.0,14.0,12.0,2.14,146.0,692.0,199.0,30.0,1.8,0.0,3.2,/static/images/food/Peproni_Pizza.jpg
+"Pickles, Cucumber, Dill Or Kosher Dill",0,1,1,0,12.0,0.4,0.5,0.2,54.0,808.0,112.0,2.0,1.0,0.0,0.0,https://www.themealdb.com/images/media/meals/ppodrp1762325183.jpg
+Poha,1,0,0,0,130.0,1.5,2.6,3.16,1.0,201.0,117.0,26.9,1.1,0.0,0.5,/static/images/food/Poha.jpg
+Pop Corn,1,0,1,0,429.0,9.5,13.0,2.28,11.0,490.0,241.0,73.0,14.0,0.0,0.5,/static/images/food/Popcorn.jpg
+Pop Corn - Caramel,1,0,1,0,381.0,1.4,2.0,0.8,18.0,286.0,110.0,90.0,2.5,0.0,65.0,/static/images/food/Popcorn_Caramel.jpg
+Pork Cooked,0,0,1,1,297.0,21.0,26.0,1.29,22.0,73.0,362.0,0.0,0.0,0.0,0.0,/static/images/food/Pork_cooked.jpg
+Protein Powder,1,0,0,0,411.0,17.0,46.0,8.57,500.0,329.0,1129.0,19.0,7.1,100.0,5.7,
+Pumpkin,0,1,1,0,18.0,0.1,0.7,0.57,15.0,237.0,230.0,4.3,1.1,0.0,2.1,/static/images/food/Pumpkin.jpg
+Quninoa,1,1,0,0,120.0,1.9,4.4,1.49,17.0,7.0,172.0,21.0,2.8,0.0,0.9,/static/images/food/Quninoa.jpg
+Rabbit Meat,0,1,1,1,114.0,2.3,22.0,3.2,12.0,50.0,378.0,0.0,0.0,0.0,0.0,/static/images/food/Rabbit_meat.jpg
+Rajma Cooked,0,1,1,0,127.0,0.5,8.7,2.9,28.0,2.0,405.0,23.0,6.4,0.0,0.3,
+Rice Pudding,0,0,1,0,376.0,0.1,2.7,1.79,14.0,366.0,5.0,91.0,0.7,0.0,0.0,/static/images/food/Rice_Pudding.jpg
+Roti Wheat,0,1,1,0,297.0,7.5,11.0,3.9,48.0,468.0,192.0,48.0,6.8,0.0,2.1,
+Salmon,0,1,1,1,127.0,4.4,21.0,0.38,7.0,75.0,366.0,0.0,0.0,100.0,0.0,/static/images/food/Salmon.jpg
+Sambar,0,1,1,0,92.0,2.8,4.1,1.8,38.0,412.0,268.0,14.0,3.2,0.0,3.8,
+"Seeds, Sunflower Seed Kernels, Dry Roasted, With Salt Added",0,1,1,0,612.0,56.1,21.0,5.2,78.0,532.0,689.0,17.1,10.3,0.0,0.0,
+Spaghetti And Meatballs,0,0,1,1,170.0,8.5,7.8,1.29,45.0,351.0,206.0,16.0,1.5,0.0,2.0,/static/images/food/Spaghetti_and_meatballs.jpg
+Steak Fries,0,1,1,1,255.0,13.0,3.3,0.69,19.0,43.0,551.0,31.0,3.5,0.0,0.9,/static/images/food/Steak_Fries.jpg
+Strawberries,1,0,0,0,32.0,0.3,0.7,0.41,16.0,1.0,153.0,7.7,2.0,0.0,4.9,/static/images/food/Strawberries.jpg
+"Strawberries, Raw",0,1,1,0,31.0,0.2,0.6,0.3,12.0,10.0,89.0,7.6,1.8,0.0,0.0,/static/images/food/Strawberries.jpg
+Strawberry Icecream,0,0,1,0,192.0,8.4,3.2,0.21,120.0,60.0,188.0,28.0,0.9,0.0,0.0,/static/images/food/Strawberry_Icecream.jpg
+Sugar Doughnuts,0,1,1,0,426.0,23.0,5.2,1.06,60.0,402.0,102.0,51.0,1.5,0.0,32.0,/static/images/food/Sugar_Doughnuts.jpg
+Sweet Potatoes Cooked,1,1,0,0,76.0,0.1,1.4,0.72,27.0,27.0,230.0,18.0,2.5,0.0,5.7,/static/images/food/Sweet_Potatoes_cooked.jpg
+Tea,1,0,0,0,1.0,0.0,0.0,0.08,2.0,1.0,9.0,0.2,0.0,0.0,0.0,/static/images/food/Tea.jpg
+Tomato,1,1,1,0,16.0,0.2,1.2,0.47,5.0,42.0,212.0,3.2,0.9,0.0,2.63,https://www.themealdb.com/images/media/meals/stpuws1511191310.jpg
+"Tomatoes, Canned, Red, Ripe, Diced",0,1,1,0,18.0,0.5,0.8,0.6,30.0,125.0,198.0,3.3,0.0,0.0,0.0,/static/images/food/Tomatoes.jpg
+"Tomatoes, Grape, Raw",0,1,1,0,27.0,0.6,0.8,0.3,11.0,6.0,260.0,5.5,2.1,0.0,0.0,/static/images/food/Tomatoes.jpg
+Tuna Fish,0,0,1,1,184.0,6.3,30.0,1.31,10.0,50.0,323.0,0.0,0.0,0.0,0.0,/static/images/food/Tuna_fish.jpg
+Tuna Salad,0,1,1,1,187.0,9.3,16.0,1.0,17.0,402.0,178.0,9.4,0.0,0.0,0.0,/static/images/food/Tuna_Salad.jpg
+Turkey Cooked,0,1,1,1,203.0,10.0,27.0,1.52,28.0,78.0,294.0,0.0,0.0,8.0,0.0,/static/images/food/Turkey_cooked.jpg
+"Turkey, Ground, 93% Lean, 7% Fat, Pan-Broiled Crumbles",0,1,1,1,220.0,11.6,27.1,1.6,31.0,90.0,304.0,0.0,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/ypuxtw1511297463.jpg
+Upma,1,0,0,0,185.0,4.2,4.8,1.8,18.0,312.0,88.0,32.0,2.2,0.0,1.4,
+Uttapam,1,1,1,0,188.0,7.2,4.4,24.0,6.4,522.0,91.0,26.4,2.2,0.0,0.24,/static/images/food/Uttapam.jpg
+Vanilla Ice Cream,0,0,1,0,207.0,11.0,3.5,0.09,128.0,80.0,199.0,24.0,0.7,0.0,21.0,/static/images/food/Vanilla_Ice-cream.jpg
+White Rice,0,1,1,0,360.0,0.6,6.6,4.36,9.0,1.0,86.0,79.0,1.4,0.0,0.0,/static/images/food/White_Rice.jpg
+Yogurt,1,1,1,0,60.0,4.0,3.1,0.08,183.0,70.0,234.0,7.0,0.0,1.0,7.0,https://www.themealdb.com/images/media/meals/y2irzl1585563479.jpg
+"Yogurt, Greek, Plain, Nonfat",1,1,1,0,61.0,0.4,10.3,0.1,111.0,36.0,141.0,3.6,0.0,0.0,0.0,https://www.themealdb.com/images/media/meals/y2irzl1585563479.jpg
+"Yogurt, Greek, Strawberry, Nonfat",1,1,1,0,83.0,0.2,8.1,0.1,97.0,32.0,133.0,12.2,0.6,1.0,0.0,https://www.themealdb.com/images/media/meals/y2irzl1585563479.jpg

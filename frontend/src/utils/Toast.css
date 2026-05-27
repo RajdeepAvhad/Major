@@ -7,6 +7,11 @@
   flex-direction: column;
   gap: 10px;
   max-width: 400px;
+  pointer-events: none; /* Prevent blocking interactions */
+}
+
+.toast-container > * {
+  pointer-events: auto; /* Re-enable for toast items */
 }
 
 @media (max-width: 768px) {
@@ -31,6 +36,9 @@
   color: #e8e8e8;
   font-size: 0.95rem;
   line-height: 1.4;
+  will-change: transform, opacity; /* Optimize animation */
+  backface-visibility: hidden; /* Prevent flickering */
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .toast-success {

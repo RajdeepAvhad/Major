@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* EatRight Global Styles - Dark Food Theme with Green Accent */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 

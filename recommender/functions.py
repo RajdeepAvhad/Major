@@ -1,6 +1,7 @@
 import os
 # import psutil
 import time 
+import json
 
 import subprocess
 import fnmatch
@@ -11,9 +12,10 @@ import matplotlib.pyplot as plt
 from tkinter import *
 from PIL import ImageFilter,Image
 from tkinter import filedialog, messagebox
-from sklearn.cluster import KMeans
+from sklearn.cluster import AgglomerativeClustering
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from imblearn.over_sampling import SMOTE
 from foodrec.settings import BASE_DIR
 import openai
 import requests
@@ -33,16 +35,127 @@ groq_client   = (
     ) if GROQ_API_KEY else None
 )
 
-data=pd.read_csv(os.path.join(BASE_DIR ,"static/data/food.csv"))
-Breakfastdata=data['Breakfast']
-BreakfastdataNumpy=Breakfastdata.to_numpy()
+# Load master dataset (use food_master.csv if available, fallback to food.csv)
+FOOD_DATA_PATH = os.path.join(BASE_DIR, "static/data/food_master.csv")
+if not os.path.exists(FOOD_DATA_PATH):
+    FOOD_DATA_PATH = os.path.join(BASE_DIR, "static/data/food.csv")
+    print(f"Warning: Using fallback dataset {FOOD_DATA_PATH}")
+
+data = pd.read_csv(FOOD_DATA_PATH)
+Breakfastdata = data['Breakfast']
+BreakfastdataNumpy = Breakfastdata.to_numpy()
                                    
-Lunchdata=data['Lunch']
-LunchdataNumpy=Lunchdata.to_numpy()
+Lunchdata = data['Lunch']
+LunchdataNumpy = Lunchdata.to_numpy()
                                             
-Dinnerdata=data['Dinner']
-DinnerdataNumpy=Dinnerdata.to_numpy()
-Food_itemsdata=data['Food_items']
+Dinnerdata = data['Dinner']
+DinnerdataNumpy = Dinnerdata.to_numpy()
+Food_itemsdata = data['Food_items']
+
+# Global variable to store trained model and feature importance
+_trained_models = {}
+_feature_importance = {}
+
+
+# Global variable to store trained model and feature importance
+_trained_models = {}
+_feature_importance = {}
+
+
+def apply_clustering(data_array, n_clusters=5):
+    """
+    Apply Agglomerative Clustering with Ward linkage
+    Replaces K-Means clustering throughout the codebase
+    """
+    X = np.array(data_array)
+    
+    # Use AgglomerativeClustering instead of K-Means
+    clustering = AgglomerativeClustering(
+        n_clusters=n_clusters,
+        linkage='ward'
+    )
+    
+    labels = clustering.fit_predict(X)
+    return labels
+
+
+def train_with_smote(X_train, y_train, model_name='default'):
+    """
+    Train Random Forest with SMOTE oversampling
+    Stores feature importance for later analysis
+    """
+    # Check if we have enough samples and classes for SMOTE
+    unique_classes, class_counts = np.unique(y_train, return_counts=True)
+    min_samples = class_counts.min()
+    
+    # SMOTE requires at least 2 samples per class
+    if min_samples >= 2 and len(unique_classes) > 1:
+        try:
+            # Apply SMOTE to balance classes
+            smote = SMOTE(random_state=42, k_neighbors=min(5, min_samples - 1))
+            X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
+            print(f"SMOTE applied: {len(X_train)} → {len(X_train_resampled)} samples")
+        except Exception as e:
+            print(f"SMOTE failed: {e}. Using original data.")
+            X_train_resampled, y_train_resampled = X_train, y_train
+    else:
+        print(f"Skipping SMOTE: insufficient samples (min={min_samples})")
+        X_train_resampled, y_train_resampled = X_train, y_train
+    
+    # Train Random Forest
+    clf = RandomForestClassifier(n_estimators=100, random_state=42)
+    clf.fit(X_train_resampled, y_train_resampled)
+    
+    # Store model and feature importance
+    _trained_models[model_name] = clf
+    _feature_importance[model_name] = clf.feature_importances_
+    
+    return clf
+
+
+def save_feature_importance():
+    """
+    Save feature importance to JSON file for frontend dashboard
+    """
+    if not _feature_importance:
+        return
+    
+    insights = {}
+    
+    for model_name, importances in _feature_importance.items():
+        # Feature names (based on nutrition_distribution.csv structure)
+        feature_names = [
+            'Calories', 'Fats', 'Proteins', 'Carbohydrates', 
+            'Fibre', 'Iron', 'Calcium', 'Sodium', 'Potassium', 
+            'VitaminD', 'Sugars', 'BMI_Class', 'Age_Class'
+        ]
+        
+        # Trim feature names to match actual number of features
+        feature_names = feature_names[:len(importances)]
+        
+        # Get top 5 features
+        indices = np.argsort(importances)[::-1][:5]
+        top_features = [
+            {
+                'feature': feature_names[i] if i < len(feature_names) else f'Feature_{i}',
+                'importance': float(importances[i])
+            }
+            for i in indices
+        ]
+        
+        insights[model_name] = {
+            'top_features': top_features,
+            'total_features': len(importances)
+        }
+    
+    # Save to JSON
+    output_path = os.path.join(BASE_DIR, 'static/data/model_insights.json')
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+    with open(output_path, 'w') as f:
+        json.dump(insights, f, indent=2)
+    
+    print(f"Feature importance saved to: {output_path}")
 
 
 def Weight_Loss(age,weight,height):
@@ -128,38 +241,17 @@ def Weight_Loss(age,weight,height):
     breakfastfoodseparatedIDdata=breakfastfoodseparatedIDdata.to_numpy()
     ti=(clbmi+agecl)/2
     
-    ## K-Means Based  Dinner Food
+    ## Agglomerative Clustering Based Dinner Food
     Datacalorie=DinnerfoodseparatedIDdata[1:,1:len(DinnerfoodseparatedIDdata)]
+    dnrlbl = apply_clustering(Datacalorie, n_clusters=5)
 
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-
-    XValu=np.arange(0,len(kmeans.labels_))
-    
-    # retrieving the labels for dinner food
-    dnrlbl=kmeans.labels_
-
-    ## K-Means Based  lunch Food
+    ## Agglomerative Clustering Based Lunch Food
     Datacalorie=LunchfoodseparatedIDdata[1:,1:len(LunchfoodseparatedIDdata)]
+    lnchlbl = apply_clustering(Datacalorie, n_clusters=5)
     
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    
-    # retrieving the labels for lunch food
-    lnchlbl=kmeans.labels_
-    
-    ## K-Means Based  lunch Food
+    ## Agglomerative Clustering Based Breakfast Food
     Datacalorie=breakfastfoodseparatedIDdata[1:,1:len(breakfastfoodseparatedIDdata)]
-    
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    
-    # retrieving the labels for breakfast food
-    brklbl=kmeans.labels_
+    brklbl = apply_clustering(Datacalorie, n_clusters=5)
     
     inp=[]
     ## Reading of the Dataet
@@ -220,7 +312,7 @@ def Weight_Loss(age,weight,height):
 
     print('####################')
     
-    #randomforest
+    #randomforest with SMOTE
     for jj in range(len(weightlosscat)):
         valloc=list(weightlosscat[jj])
         valloc.append(agecl)
@@ -232,15 +324,15 @@ def Weight_Loss(age,weight,height):
     X_train=weightlossfin# Features
     y_train=yt # Labels
 
-    #Create a Gaussian Classifier
-    clf=RandomForestClassifier(n_estimators=100)
-    
-    #Train the model using the training sets y_pred=clf.predict(X_test)
-    clf.fit(X_train,y_train)
+    #Train Random Forest with SMOTE
+    clf = train_with_smote(X_train, y_train, model_name='weight_loss')
     
     #print (X_test[1])
     X_test2=X_test
     y_pred=clf.predict(X_test)
+    
+    # Save feature importance
+    save_feature_importance()
     
     returndata=[]
     print ('SUGGESTED FOOD ITEMS ::')
@@ -345,52 +437,17 @@ def Weight_Gain(age,weight,height):
     ti=(clbmi+agecl)/2 
     
     
-    ## K-Means Based  Dinner Food
+    ## Agglomerative Clustering Based Dinner Food
     Datacalorie=DinnerfoodseparatedIDdata[1:,1:len(DinnerfoodseparatedIDdata)]
+    dnrlbl = apply_clustering(Datacalorie, n_clusters=5)
     
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    # plt.bar(XValu,kmeans.labels_)
-    dnrlbl=kmeans.labels_
-    # plt.title("Predicted Low-High Weigted Calorie Foods")
-    
-    ## K-Means Based  lunch Food
-    # Datacalorie=LunchfoodseparatedIDdata[1:,1:len(LunchfoodseparatedIDdata)]
-    Datacalorie=DinnerfoodseparatedIDdata[1:,1:len(DinnerfoodseparatedIDdata)]    
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    # fig,axs=plt.subplots(1,1,figsize=(15,5))
-    # plt.bar(XValu,kmeans.labels_)
-    # lnchlbl=kmeans.labels_
-    dnrlbl=kmeans.labels_
-    # plt.title("Predicted Low-High Weigted Calorie Foods")
-    
-    ## K-Means Based  lunch Food
-    # Datacalorie=breakfastfoodseparatedIDdata[1:,1:len(breakfastfoodseparatedIDdata)]
+    ## Agglomerative Clustering Based Lunch Food
     Datacalorie=LunchfoodseparatedIDdata[1:,1:len(LunchfoodseparatedIDdata)]
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    # fig,axs=plt.subplots(1,1,figsize=(15,5))
-    # plt.bar(XValu,kmeans.labels_)
-    # brklbl=kmeans.labels_
-    lnchlbl=kmeans.labels_
+    lnchlbl = apply_clustering(Datacalorie, n_clusters=5)
 
-    # K-Means Based  lunch Food
+    ## Agglomerative Clustering Based Breakfast Food
     Datacalorie=breakfastfoodseparatedIDdata[1:,1:len(breakfastfoodseparatedIDdata)]
-    
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    
-    # retrieving the labels for breakfast food
-    brklbl=kmeans.labels_
+    brklbl = apply_clustering(Datacalorie, n_clusters=5)
     
     # plt.title("Predicted Low-High Weigted Calorie Foods")
     inp=[]
@@ -463,18 +520,15 @@ def Weight_Gain(age,weight,height):
     X_train=weightgainfin# Features
     y_train=yr # Labels
     
-   
+    #Train Random Forest with SMOTE
+    clf = train_with_smote(X_train, y_train, model_name='weight_gain')
     
-    
-    #Create a Gaussian Classifier
-    clf=RandomForestClassifier(n_estimators=100)
-    
-    #Train the model using the training sets y_pred=clf.predict(X_test)
-    clf.fit(X_train,y_train)
-    
-   
+    #print (X_test[1])
     X_test2=X_test
     y_pred=clf.predict(X_test)
+    
+    # Save feature importance
+    save_feature_importance()
     
     
     returndata=[]
@@ -582,40 +636,17 @@ def Healthy(age,weight,height):
     
     
 
+    ## Agglomerative Clustering Based Dinner Food
     Datacalorie=DinnerfoodseparatedIDdata[1:,1:len(DinnerfoodseparatedIDdata)]
+    dnrlbl = apply_clustering(Datacalorie, n_clusters=5)
     
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    # fig,axs=plt.subplots(1,1,figsize=(15,5))
-    # plt.bar(XValu,kmeans.labels_)
-    dnrlbl=kmeans.labels_
-    # plt.title("Predicted Low-High Weigted Calorie Foods")
-    
+    ## Agglomerative Clustering Based Lunch Food
     Datacalorie=LunchfoodseparatedIDdata[1:,1:len(LunchfoodseparatedIDdata)]
-    
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    #print ('## Prediction Result ##')
-    #print(kmeans.labels_)
-    XValu=np.arange(0,len(kmeans.labels_))
-    # fig,axs=plt.subplots(1,1,figsize=(15,5))
-    # plt.bar(XValu,kmeans.labels_)
-    lnchlbl=kmeans.labels_
-    # plt.title("Predicted Low-High Weigted Calorie Foods")
+    lnchlbl = apply_clustering(Datacalorie, n_clusters=5)
    
+    ## Agglomerative Clustering Based Breakfast Food
     Datacalorie=breakfastfoodseparatedIDdata[1:,1:len(breakfastfoodseparatedIDdata)]
-    
-    X = np.array(Datacalorie)
-    kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-    
-    XValu=np.arange(0,len(kmeans.labels_))
-    # fig,axs=plt.subplots(1,1,figsize=(15,5))
-    # plt.bar(XValu,kmeans.labels_)
-    brklbl=kmeans.labels_
-    # print (len(brklbl))
-    # plt.title("Predicted Low-High Weigted Calorie Foods")
+    brklbl = apply_clustering(Datacalorie, n_clusters=5)
     inp=[]
     ## Reading of the Dataet
     datafin=pd.read_csv(os.path.join(BASE_DIR ,"static/data/nutrition_distriution.csv"))
@@ -683,19 +714,15 @@ def Healthy(age,weight,height):
     X_train=healthycatfin# Features
     y_train=ys # Labels
     
-    
-    
-    
-    #Create a Gaussian Classifier
-    clf=RandomForestClassifier(n_estimators=100)
-    
-    #Train the model using the training sets y_pred=clf.predict(X_test)
-    clf.fit(X_train,y_train)
-    
+    #Train Random Forest with SMOTE
+    clf = train_with_smote(X_train, y_train, model_name='healthy')
     
     X_test2=X_test
     y_pred=clf.predict(X_test)
    
+    # Save feature importance
+    save_feature_importance()
+    
     print(f"DEBUG Healthy: y_pred unique values and counts: {np.unique(y_pred, return_counts=True)}")
     print(f"DEBUG Healthy: Total predictions: {len(y_pred)}")
     
@@ -1275,6 +1302,242 @@ _KB = [
             'Stick to one small handful per day if managing calorie intake.'
         ),
     },
+    {
+        'keywords': ['cooking methods', 'boiling', 'frying', 'grilling', 'steaming', 'baking', 'sauté'],
+        'answer': (
+            'Cooking methods significantly impact nutrient preservation and calorie content.\n\n'
+            'Healthiest methods (preserve nutrients, low added fat):\n'
+            '• Steaming: Vegetables retain vitamins; fish stays moist; no added oil needed\n'
+            '• Grilling: Proteins develop flavor; minimal fat; creates beneficial compounds\n'
+            '• Baking: Whole foods cook evenly; requires minimal oil\n'
+            '• Boiling: Good for legumes, eggs; loses some water-soluble vitamins (but dal water is nutrient-dense)\n\n'
+            'Methods to minimise (high fat/calories, nutrient loss):\n'
+            '• Deep-frying: Adds 120–200 kcal per serving from oil absorption\n'
+            '• Creamy curries: Adds saturated fat; portion control critical\n\n'
+            'Tip: Stir-fry with minimal oil (1 tsp per person) and high heat to retain nutrients.'
+        ),
+    },
+    {
+        'keywords': ['spices', 'turmeric', 'cumin', 'chili', 'cinnamon', 'spice health benefits'],
+        'answer': (
+            'Indian spices are not just flavorful — many have powerful health benefits.\n\n'
+            'Top spices and their benefits:\n'
+            '• Turmeric (haldi): Curcumin is anti-inflammatory; enhances absorption with black pepper\n'
+            '• Cumin (jeera): Aids digestion, improves iron absorption, stabilises blood sugar\n'
+            '• Coriander (dhaniya): Diuretic; may help lower cholesterol\n'
+            '• Ginger (adrak): Anti-nausea, anti-inflammatory; aids digestion\n'
+            '• Red chili: Boosts metabolism by 3–5%; contains capsaicin\n'
+            '• Cinnamon: Improves insulin sensitivity; lowers blood sugar spikes\n'
+            '• Fenugreek (methi): Lowers blood sugar, aids lactation\n\n'
+            'Use spices generously — they add flavor with zero calories while providing bioactive compounds!'
+        ),
+    },
+    {
+        'keywords': ['oil', 'olive oil', 'coconut oil', 'mustard oil', 'ghee', 'butter', 'which oil to use'],
+        'answer': (
+            'Oils and fats vary in fatty acid composition and smoke point.\n\n'
+            'Best for cooking (high smoke point, healthy fats):\n'
+            '• Mustard oil: High omega-3; strong taste; Indian staple\n'
+            '• Coconut oil: Stable at high heat; mildly sweet flavor (use sparingly — high saturated fat)\n'
+            '• Groundnut oil: Balanced profile; good for Indian cooking\n\n'
+            'Best for drizzling/salads (low heat only):\n'
+            '• Extra-virgin olive oil: Rich polyphenols; best unheated for Mediterranean recipes\n'
+            '• Flaxseed oil: High omega-3; must be kept cold, never heated\n\n'
+            'Limit for daily use:\n'
+            '• Ghee: 15% more calories per serving than oil; use 1 teaspoon per person\n'
+            '• Butter: Higher saturated fat — reserve for special occasions\n\n'
+            'General guide: 1 teaspoon (5 ml) oil per person per meal ≈ 45 kcal, 5 g fat'
+        ),
+    },
+    {
+        'keywords': ['meal timing', 'eating time', 'when to eat', 'meal frequency', 'small meals'],
+        'answer': (
+            'While total daily calories matter most, meal timing affects hunger and energy.\n\n'
+            'Optimal meal pattern (for most people):\n'
+            '• 3 main meals (breakfast, lunch, dinner) spaced 4–5 hours apart\n'
+            '• 1–2 small snacks between meals (especially if active)\n\n'
+            'Why this matters:\n'
+            '• Eating every 3–4 hours prevents extreme hunger (→ overeating)\n'
+            '• Regular meals stabilise blood sugar and energy levels\n'
+            '• Spreads protein intake throughout the day (better muscle synthesis)\n\n'
+            'However: Intermittent fasting (16:8) works too if it helps you hit your calorie target.\n'
+            'Some people thrive on 5–6 small meals; others on 2 large meals. Choose what you can sustain.\n\n'
+            'The key: Eat in a way that prevents excessive hunger and supports adherence to your calorie goal.'
+        ),
+    },
+    {
+        'keywords': ['food substitution', 'swap', 'replace', 'healthier alternative', 'swap sugar'],
+        'answer': (
+            'Simple substitutions make healthy eating easier without sacrifice.\n\n'
+            'Weight loss friendly swaps:\n'
+            '• White rice → Brown rice or cauliflower rice (saves 30–40 kcal per cup)\n'
+            '• White bread → Whole wheat or multigrain (more fiber, slower digestion)\n'
+            '• Sugar drinks → Water, lemon water, black tea, black coffee\n'
+            '• Fruit juice → Whole fruit (retains fiber; saves 50–80 kcal, cuts sugar spike)\n'
+            '• Fried snacks → Baked chips, roasted chana, makhana\n'
+            '• Cream/full-fat yogurt → Greek yogurt or low-fat dahi (same protein, fewer calories)\n'
+            '• Cooking oil (3 tbsp) → Cooking spray + 1 tsp oil (saves 250 kcal)\n'
+            '• Regular paneer → Low-fat paneer or tofu (saves 80 kcal per 100 g)\n'
+            '• Desserts → Dark chocolate (70% cocoa), fruit, or dates\n\n'
+            'Make one swap at a time to avoid overwhelm.'
+        ),
+    },
+    {
+        'keywords': ['digestion', 'bloating', 'gas', 'indigestion', 'acid reflux', 'heartburn'],
+        'answer': (
+            'Poor digestion impacts nutrient absorption and comfort.\n\n'
+            'Common triggers:\n'
+            '• High-fat meals: Take longer to digest (3–4 hours for fatty curry vs 2 hours for dal)\n'
+            '• Legumes (dal, rajma, chana): High fiber; can cause bloating if eaten infrequently\n'
+            '• Cruciferous veggies (cabbage, broccoli): Sauté with ginger and cumin to reduce gas\n'
+            '• Eating too fast: Swallow air; eat too much too quickly\n'
+            '• Spicy food: Can trigger reflux in sensitive people\n\n'
+            'Solutions:\n'
+            '• Ginger tea 20 min before meals improves digestion\n'
+            '• Add dal gradually to your diet if new to it; your gut adapts in 2–3 weeks\n'
+            '• Chew slowly: At least 20–30 chews per mouthful\n'
+            '• Cumin-coriander-fennel tea post-meal aids digestion\n'
+            '• Avoid lying down immediately after eating\n\n'
+            'Consistent bloating after meals? Consult a doctor — may indicate food intolerance or IBS.'
+        ),
+    },
+    {
+        'keywords': ['hunger cues', 'true hunger', 'thirst', 'appetite', 'fullness signals'],
+        'answer': (
+            'Learning to distinguish true hunger from thirst or emotional hunger is key to sustainable eating.\n\n'
+            'True physical hunger:\n'
+            '• Develops gradually over 2–3 hours\n'
+            '• Stomach growls or feels empty\n'
+            '• Willing to eat any healthy food\n'
+            '• Satisfied by any nourishing meal\n\n'
+            'False hunger (thirst, boredom, stress):\n'
+            '• Comes suddenly and intensely\n'
+            '• Cravings for specific foods (usually high-sugar/high-fat)\n'
+            '• Stops after drinking water or distraction\n'
+            '• Eating doesn\'t feel truly satisfying\n\n'
+            'Quick test: Drink a glass of water and wait 10 min. If hunger goes away, you were thirsty.\n'
+            'Fullness takes 20 min to register in your brain — eat slowly and stop when 80% full.'
+        ),
+    },
+    {
+        'keywords': ['calorie burn', 'exercise', 'steps', 'walking', 'calories burned', 'activity'],
+        'answer': (
+            'Exercise burns calories and builds muscle, but diet is 70–80% of weight loss.\n\n'
+            'Typical calorie burns (varies by weight and intensity):\n'
+            '• Walking: 200–300 kcal per 30 min (depends on speed and incline)\n'
+            '• Running: 400–600 kcal per 30 min\n'
+            '• Cycling: 300–500 kcal per 30 min\n'
+            '• Weight training: 200–300 kcal per 30 min + increased resting metabolism\n'
+            '• Yoga: 120–180 kcal per 30 min\n\n'
+            'Bottom line: 10,000 steps ≈ 300–400 kcal burned; this equals a single meal.\n'
+            '→ Exercise alone cannot overcome a poor diet; pair with calorie awareness.\n'
+            '→ Strength training builds muscle, which increases resting metabolism (long-term benefit).\n'
+            '→ Aim for 150 min moderate + 2 days strength training per week.'
+        ),
+    },
+    {
+        'keywords': ['food label', 'nutrition facts', 'read label', 'ingredients list', 'expiry date'],
+        'answer': (
+            'Reading food labels helps you make informed choices.\n\n'
+            'What to check:\n'
+            '1. Serving size: The entire nutrition table is per this serving (often smaller than you eat!)\n'
+            '2. Calories: Total energy in one serving\n'
+            '3. Macros: Protein (builds muscle), fat (avoid trans fats), carbs (choose complex)\n'
+            '4. Ingredients list: Listed by weight. If sugar/salt in top 3, it\'s a high-sugar/salt product.\n'
+            '5. Look for claims: "No added sugar" ≠ naturally sugar-free. Check ingredients.\n\n'
+            'Red flags:\n'
+            '• Trans fat (avoid entirely; check ingredients for "hydrogenated oil")\n'
+            '• Added sugar >5g per serving for savory foods, >15g for sweets\n'
+            '• Sodium >300 mg per serving for snacks\n\n'
+            'Pro tip: Apps like MyFitnessPal scan barcodes to log nutrition easily.'
+        ),
+    },
+    {
+        'keywords': ['myths', 'myth', 'misconception', 'nutrition myth', 'false belief'],
+        'answer': (
+            'Common nutrition myths debunked:\n\n'
+            '❌ Myth: "Eating fat makes you fat"\n'
+            '✓ Truth: Excess calories make you fat. Healthy fats are essential.\n\n'
+            '❌ Myth: "Eggs raise cholesterol; avoid them"\n'
+            '✓ Truth: Eggs are nutritious; dietary cholesterol ≠ blood cholesterol. Eat up to 3/day.\n\n'
+            '❌ Myth: "Carbs are bad; go low-carb"\n'
+            '✓ Truth: Complex carbs (oats, dal, brown rice) are fuel; refined carbs are the issue.\n\n'
+            '❌ Myth: "Skip breakfast for weight loss"\n'
+            '✓ Truth: Breakfast doesn\'t affect weight loss; total daily calories do. Eat if hungry.\n\n'
+            '❌ Myth: "Detox diets cleanse your body"\n'
+            '✓ Truth: Your liver and kidneys detox automatically. No product needed.\n\n'
+            '❌ Myth: "Avoid salt entirely"\n'
+            '✓ Truth: Sodium is essential; just avoid excess. Limit to 2,000 mg/day.\n\n'
+            'Trust evidence, not hype!'
+        ),
+    },
+    {
+        'keywords': ['body composition', 'muscle', 'fat loss', 'lean', 'body recomposition', 'muscle gain fat loss'],
+        'answer': (
+            'Body recomposition (losing fat while gaining muscle) is possible and highly desirable.\n\n'
+            'Key principle: Weight alone is misleading (muscle weighs more than fat).\n'
+            '→ A person may lose 2 kg fat but gain 1 kg muscle (net -1 kg, but body looks better).\n\n'
+            'To achieve recomposition:\n'
+            '• Eat protein: 1.6–2.2 g per kg body weight (preserves + builds muscle)\n'
+            '• Eat in slight deficit: 200–300 kcal below TDEE (slow fat loss, preserves muscle)\n'
+            '• Lift weights 3–5 days/week (stimulates muscle protein synthesis)\n'
+            '• Get 7–9 hours sleep (muscle grows during rest)\n'
+            '• Don\'t rush: Body recomposition takes 8–12 weeks to show visibly\n\n'
+            'Better metric than scale: Photos, measurements, how clothes fit, or DEXA scan.'
+        ),
+    },
+    {
+        'keywords': ['cooking tips', 'batch cooking', 'meal prep', 'food storage', 'how to store food'],
+        'answer': (
+            'Meal prep saves time and keeps you on track.\n\n'
+            'Batch cooking strategy:\n'
+            '• Cook dal/rice in bulk on Sunday for 3–4 days\n'
+            '• Grill chicken/paneer in batches; refrigerate up to 4 days\n'
+            '• Chop vegetables and store in airtight containers (lasts 3–4 days)\n'
+            '• Portion snacks (nuts, fruit) in containers for grab-and-go\n\n'
+            'Storage guidelines:\n'
+            '• Cooked dal/rice: 4 days in fridge\n'
+            '• Cooked meat/paneer: 3–4 days\n'
+            '• Raw vegetables: 5–7 days in airtight container\n'
+            '• Cut fruit: 2–3 days (keeps longer if acidic: citrus, berries)\n'
+            '• Nuts/seeds: 2 weeks (room temp); 3 months (freezer)\n\n'
+            'Freeze-friendly: Dal, cooked rice, cooked meat, soups, curries (up to 3 months).\n'
+            'Planning 1 hour/week saves 5+ hours of daily meal decisions!'
+        ),
+    },
+    {
+        'keywords': ['motivation', 'motivation to diet', 'stay on track', 'consistency', 'losing motivation'],
+        'answer': (
+            'Nutrition success requires consistency, not perfection. Even 80% adherence wins over time.\n\n'
+            'Strategies to stay motivated:\n'
+            '• Set specific, measurable goals: "Lose 5 kg in 3 months" vs "Get fit"\n'
+            '• Track progress beyond scale: Energy, strength gains, clothes fit, skin clarity\n'
+            '• Join a community: Friends, online groups, or a registered dietitian for accountability\n'
+            '• Plan 1 cheat meal/week: Knowing you can enjoy your favorite food prevents deprivation\n'
+            '• Celebrate small wins: Stuck to protein target for a week? That\'s a win!\n'
+            '• Change your environment: Bring snacks to office; meal prep at home; avoid triggers\n'
+            '• Remind yourself why: Write your goal and reasons on a sticky note; read weekly\n\n'
+            'Remember: The best diet is one you can follow consistently. Choose realistic, sustainable changes.'
+        ),
+    },
+    {
+        'keywords': ['indian food', 'desi', 'traditional indian', 'indian cuisine', 'south indian'],
+        'answer': (
+            'Traditional Indian cuisine is naturally nutritious when cooked mindfully.\n\n'
+            'Nutrition highlights:\n'
+            '• Dal (lentils): High protein and fiber; affordable, sustains energy\n'
+            '• Roti (whole wheat): Complex carbs, easy portion control, satiating\n'
+            '• Sambar/rasam: Spice blends aid digestion; can make at home to control oil\n'
+            '• Dosa/idli: Fermented, easier to digest; use minimal coconut oil\n'
+            '• Sabzi: Nutrient-dense vegetables; cook with minimal oil for best results\n\n'
+            'Modifications for weight loss:\n'
+            '• Use 1 tsp oil per person, not a glob\n'
+            '• Grill or steam instead of frying (saves 100+ kcal per dish)\n'
+            '• Include vegetables in every meal; aim for 50% of the plate\n'
+            '• Whole wheat roti > refined maida roti (saves 20 kcal, gains 2 g fiber)\n\n'
+            'You don\'t need to eat foreign foods to be healthy — master your traditional diet first!'
+        ),
+    },
 ]
 
 _FALLBACK_ANSWER = (
@@ -1308,11 +1571,30 @@ def _rule_based_chat(question):
 def _call_llm(client, model, question, history):
     """Shared call for OpenAI or Groq (same interface)."""
     system_prompt = (
-        'You are EatRight AI, a knowledgeable and friendly nutrition and diet assistant. '
-        'You help users with questions about food, diet plans, calories, macronutrients, '
-        'BMI, weight management, and healthy eating habits. '
-        'Keep your answers concise, practical, and evidence-based. '
-        'Format multi-step answers with numbered lists or bullet points for readability.'
+        'You are EatRight AI, a knowledgeable, friendly, and personalized nutrition and diet assistant. '
+        'You are part of the EatRight app that helps users with personalized diet recommendations, calorie tracking, and health goals.\n\n'
+        'Your expertise:\n'
+        '• Personalized diet planning based on user metrics (BMI, body fat, age, gender, goals)\n'
+        '• Macronutrient guidance (protein, carbs, fats) tailored to individual targets\n'
+        '• Indian cuisine nutrition (dal, paneer, roti, traditional dishes, spices)\n'
+        '• Practical strategies: meal prep, cooking methods, label reading, portion control\n'
+        '• Evidence-based answers on weight loss, muscle gain, and body recomposition\n'
+        '• Debunking myths and providing scientifically-backed nutrition facts\n\n'
+        'Tone & approach:\n'
+        '• Always be encouraging and non-judgmental\n'
+        '• Provide specific, actionable advice with quantities and examples\n'
+        '• Include Indian food context when relevant — many users follow traditional diets\n'
+        '• Format multi-step answers with numbered lists or bullet points\n'
+        '• When a user mentions body metrics or goals, relate advice to their specific situation\n'
+        '• Distinguish between personalized guidance (use app features) vs general advice (provide here)\n\n'
+        'Examples of personalization:\n'
+        '• "Based on your BMI of 28, a calorie deficit of 300-500 kcal/day through diet + exercise is ideal for you."\n'
+        '• "For your goal of 1,800 kcal/day, I\'d suggest: 150g protein (20%), 180g carbs (40%), 60g fat (30%)."\n'
+        '• "Since you prefer vegetarian foods, let\'s build your protein from dal, paneer, eggs, and Greek yogurt."\n\n'
+        'Scope reminders:\n'
+        '• Do NOT diagnose medical conditions or replace a doctor\'s advice\n'
+        '• When discussing health concerns (diabetes, heart disease), emphasize consulting a healthcare provider\n'
+        '• Recommend a registered dietitian for athletes, pregnant women, or complex conditions'
     )
     messages = [{'role': 'system', 'content': system_prompt}]
     if history:

@@ -1,79 +1,95 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useAuth } from '../api/AuthContext';
-import { useState } from 'react';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [compact, setCompact] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setCompact(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setDropdownOpen(false);
+  }, [location.pathname]);
+
+  const initials = useMemo(() => {
+    const value = (user?.username || user?.email || 'ER').trim();
+    if (!value) return 'ER';
+    const parts = value.split(/\s+/).filter(Boolean);
+    if (parts.length > 1) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+    return value.slice(0, 2).toUpperCase();
+  }, [user]);
 
   const handleLogout = async () => {
-    setMenuOpen(false);
     setDropdownOpen(false);
     await logout();
     navigate('/login');
   };
 
-  const closeAll = () => { setMenuOpen(false); setDropdownOpen(false); };
+  const navItems = [
+    { to: '/home', label: 'Home' },
+    { to: '/dietplanner', label: 'Plan My Diet' },
+    { to: '/bodymass', label: 'Body Fat' },
+    { to: '/chatbot', label: 'AI Chatbot' },
+  ];
+  if (user) {
+    navItems.push({ to: '/progress', label: 'Progress' });
+    navItems.push({ to: '/diet-history', label: 'History' });
+  }
 
   return (
-    <header className="site-header">
-      <Link to="/home" onClick={closeAll}>
-        <img src="/static/images/Gemini_Generated_Image_f0bd5kf0bd5kf0bd.png" alt="EatRight" height="55" />
-      </Link>
+    <motion.header
+      className="site-header"
+      animate={{}}
+      transition={{ duration: 0.2 }}
+    >
+      <motion.div className="site-header__inner" animate={{ height: compact ? 56 : 72 }} transition={{ duration: 0.22 }}>
+        {/* Logo - Far Left */}
+        <Link to="/home" aria-label="EatRight home" className="header-logo-wrapper">
+          <img className="site-logo site-logo--nav" src="/static/images/logo.png" alt="EatRight" />
+        </Link>
 
-      {/* Hamburger button — visible only on mobile via CSS */}
-      <button
-        className="hamburger-btn"
-        onClick={() => setMenuOpen(o => !o)}
-        aria-label="Toggle navigation"
-      >
-        {menuOpen ? '✕' : '☰'}
-      </button>
+        {/* Navigation - Center */}
+        <nav className="site-header__nav" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <NavLink key={item.to} to={item.to} className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}>
+              {({ isActive }) => (
+                <>
+                  {item.label}
+                  {isActive && <span className="nav-dot" />}
+                </>
+              )}
+            </NavLink>
+          ))}
+        </nav>
 
-      <ul className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
-        <li><Link to="/home"        onClick={closeAll}>Home</Link></li>
-        <li><Link to="/dietplanner" onClick={closeAll}>Plan My Diet</Link></li>
-        <li><Link to="/bodymass"    onClick={closeAll}>Body Fat Calculator</Link></li>
-        <li><Link to="/dashboard"   onClick={closeAll}>AI Chatbot</Link></li>
-        {user && <li><Link to="/progress"   onClick={closeAll}>📊 Progress</Link></li>}
-        {user && <li><Link to="/diet-history" onClick={closeAll}>History</Link></li>}
-
-        {user ? (
-          <li style={{ position: 'relative' }}>
-            <button
-              className="btn-brand"
-              onClick={() => setDropdownOpen(o => !o)}
-            >
-              {user.username} ▾
+        {/* Account Badge - Far Right */}
+        <div className="header-account-wrapper">
+          {user ? (
+            <button className="avatar-btn" onClick={() => setDropdownOpen(open => !open)} aria-label="Profile menu">
+              {initials}
             </button>
-            {dropdownOpen && (
-              <div className="nav-dropdown">
-                <Link
-                  to="/profile"
-                  onClick={closeAll}
-                  style={{ display: 'block', padding: '10px 16px', color: '#e8e8e8', textDecoration: 'none' }}
-                >
-                  My Profile
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  style={{
-                    display: 'block', width: '100%', padding: '10px 16px',
-                    background: 'none', border: 'none', textAlign: 'left',
-                    cursor: 'pointer', color: '#27AE60', fontWeight: 500,
-                  }}
-                >
-                  Logout
-                </button>
-              </div>
-            )}
-          </li>
-        ) : (
-          <li><Link to="/login" className="btn-brand" onClick={closeAll}>Login</Link></li>
-        )}
-      </ul>
-    </header>
+          ) : (
+            <Link to="/login" className="login-cta">Login</Link>
+          )}
+
+          {user && dropdownOpen && (
+            <div className="nav-dropdown">
+              <Link to="/profile">Profile</Link>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </motion.header>
   );
 }

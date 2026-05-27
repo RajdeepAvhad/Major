@@ -25,7 +25,7 @@ export default function TeamPage() {
                   alt={member.name}
                   className="rounded-circle mx-auto mb-3"
                   style={{ width: 100, height: 100, objectFit: 'cover' }}
-                  onError={e => { e.target.src = '/static/images/Gemini_Generated_Image_f0bd5kf0bd5kf0bd.png'; }}
+                  onError={e => { e.target.src = '/static/images/logo.png'; }}
                 />
                 <h5 style={{ color: '#2ECC71' }}>{member.name}</h5>
                 <p className="text-muted" style={{ fontSize: 14 }}>{member.role}</p>

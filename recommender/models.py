@@ -18,7 +18,14 @@ class Food(models.Model):
     fat = models.IntegerField()
     pro = models.IntegerField()
     sug = models.IntegerField()
-    imagepath= models.CharField(default="",max_length=100)
+    imagepath = models.CharField(default="", max_length=100)
+    
+    # New fields for enhanced food metadata
+    veg = models.BooleanField(default=False, help_text="Is this food vegetarian?")
+    glycemic_index = models.FloatField(null=True, blank=True, help_text="Glycemic Index (0-100)")
+    gi_category = models.CharField(max_length=10, null=True, blank=True)
+    cuisine = models.CharField(max_length=50, default='International', help_text="Cuisine type (e.g., Indian, Chinese, Italian)")
+    
     def __str__(self):
         return self.name
 class UserList(models.Model):
@@ -35,7 +42,7 @@ class SavedDiet(models.Model):
     plan_date = models.DateField(null=True, blank=True, default=timezone.localdate)
     target_calories = models.IntegerField(default=0)
     selected_calories = models.IntegerField(default=0)
-    selected_items = models.TextField(default="[]")
+    selected_items = models.JSONField(default=list, blank=True)
     bmi = models.FloatField(null=True, blank=True)
     bodyfat = models.FloatField(null=True, blank=True)
     bmiinfo = models.CharField(max_length=255, blank=True, default="")
@@ -43,6 +50,11 @@ class SavedDiet(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+        indexes = [
+            models.Index(fields=['-created_at']),
+            models.Index(fields=['user', 'period']),
+            models.Index(fields=['session_key', 'period']),
+        ]
 
     def __str__(self):
         return f"SavedDiet {self.id} ({self.selected_calories}/{self.target_calories})"
@@ -77,15 +89,23 @@ class FavoriteFood(models.Model):
     class Meta:
         unique_together = ("user", "session_key", "food")
         ordering = ["-created_at"]
+        indexes = [
+            models.Index(fields=['user', 'food']),
+            models.Index(fields=['session_key', 'food']),
+        ]
 
 
 class WaterLog(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     session_key = models.CharField(max_length=100, blank=True, default="")
-    log_date = models.DateField(default=timezone.localdate)
+    log_date = models.DateField(default=timezone.localdate, db_index=True)
     amount_ml = models.IntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = ("user", "session_key", "log_date")
         ordering = ["-log_date"]
+        indexes = [
+            models.Index(fields=['user', 'log_date']),
+            models.Index(fields=['session_key', 'log_date']),
+        ]

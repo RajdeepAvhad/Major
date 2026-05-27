@@ -16,6 +16,20 @@ from recommender.models import Food, UserList, SavedDiet, UserPreference, Favori
 from recommender.functions import Weight_Gain, Weight_Loss, Healthy, calculate_bmr, chatfunction
 
 
+def _gi_category_from_value(value):
+    if value is None:
+        return None
+    try:
+        value = float(value)
+    except (TypeError, ValueError):
+        return None
+    if value < 55:
+        return 'Low'
+    if value < 70:
+        return 'Medium'
+    return 'High'
+
+
 def _parse_json_body(request):
     try:
         return json.loads(request.body.decode("utf-8"))
@@ -41,6 +55,8 @@ def _serialize_foods(queryset):
             "pro": f.pro,
             "sug": f.sug,
             "imagepath": f.imagepath,
+            "glycemic_index": f.glycemic_index,
+            "gi_category": f.gi_category or _gi_category_from_value(f.glycemic_index),
         }
         for f in queryset
     ]
@@ -221,6 +237,9 @@ def api_recommend(request):
     gender = data.get("gender")
     category = data.get("category", "none")
     bodyfat_raw = data.get("bodyfat")
+    gi_filter = (request.GET.get("gi_filter") or "all").strip().lower()
+    if gi_filter not in {"all", "low", "medium", "high"}:
+        gi_filter = "all"
 
     if not gender:
         return JsonResponse({"ok": False, "message": "Gender is required"}, status=400)
@@ -261,6 +280,13 @@ def api_recommend(request):
     lunch = Food.objects.filter(lu=1, name__in=finaldata)
     dinner = Food.objects.filter(di=1, name__in=finaldata)
 
+    if gi_filter != "all":
+        category_map = {"low": "Low", "medium": "Medium", "high": "High"}
+        gi_category = category_map[gi_filter]
+        breakfast = breakfast.filter(gi_category=gi_category)
+        lunch = lunch.filter(gi_category=gi_category)
+        dinner = dinner.filter(gi_category=gi_category)
+
     return JsonResponse({
         "ok": True,
         "breakfast": _serialize_foods(breakfast),
@@ -271,6 +297,7 @@ def api_recommend(request):
         "caloriesreq": caloriesreq,
         "bodyfat": bodyfat,
         "bodyfat_source": bodyfat_source,
+        "goal": goal,
     })
 
 
@@ -321,7 +348,7 @@ def api_save_diet(request):
         plan_date=plan_date,
         target_calories=target_calories,
         selected_calories=selected_calories,
-        selected_items=json.dumps(items),
+        selected_items=items,  # Now directly stores list/dict, not JSON string
         bmi=float(data.get("bmi")) if data.get("bmi") not in (None, "") else None,
         bodyfat=float(data.get("bodyfat")) if data.get("bodyfat") not in (None, "") else None,
         bmiinfo=str(data.get("bmiinfo") or ""),
@@ -337,10 +364,8 @@ def api_diet_history(request):
 
     history = []
     for record in saved_diets:
-        try:
-            items = json.loads(record.selected_items)
-        except json.JSONDecodeError:
-            items = []
+        # selected_items is now a JSONField, no need to parse
+        items = record.selected_items if isinstance(record.selected_items, list) else []
         history.append({
             "id": record.id,
             "created_at": record.created_at.isoformat(),
@@ -624,11 +649,9 @@ def api_diet_insights(request):
         # Find most selected food
         all_foods = []
         for record in saved_list:
-            try:
-                items = json.loads(record.selected_items or '[]')
-                all_foods.extend([item.get('name', '') for item in items])
-            except:
-                pass
+            # selected_items is now a JSONField
+            items = record.selected_items if isinstance(record.selected_items, list) else []
+            all_foods.extend([item.get('name', '') for item in items if isinstance(item, dict)])
         if all_foods:
             counter = Counter(all_foods)
             most_selected_food = counter.most_common(1)[0][0] if counter else "—"

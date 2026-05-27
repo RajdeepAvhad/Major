@@ -1,0 +1,1814 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Tr1NGotnaBAZEWa3cZw6c9$Fel7uYqteYi/HZvLCRrGIVq4yuKX/Qer9d5bixaRd/w=",
+    "last_login": "2025-12-02T07:25:33.921Z",
+    "is_superuser": false,
+    "username": "Rajdeep_av",
+    "first_name": "",
+    "last_name": "",
+    "email": "rajdeepavhad12345@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-02T07:25:02.965Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$usLUwxYzwXblvURFF4l1Gd$tiMJ0/bDDQyNxz5Wqottf7hpNzjd9wX3VDqV65ytZrA=",
+    "last_login": "2025-12-04T05:33:44.922Z",
+    "is_superuser": false,
+    "username": "prajwal",
+    "first_name": "",
+    "last_name": "",
+    "email": "202301040288@mitaoe.ac.in",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-04T05:33:22.955Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$u8qakxaSggcClYvLlXeriI$AOxeW7wlvuj6FrgiHAQE7vjLPEVAHjLCZuyZShVrtGc=",
+    "last_login": "2026-05-16T18:48:38.908Z",
+    "is_superuser": false,
+    "username": "Prajwal Jadhav",
+    "first_name": "",
+    "last_name": "",
+    "email": "jadhavprajwal1485@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-13T09:29:41.454Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$d4pVa7Ivik7ES742KLG8qd$0urfCaS4t9ecywAajH6nzC9eTSUWD976uTG5RDLFjPc=",
+    "last_login": "2026-05-16T07:13:33.718Z",
+    "is_superuser": true,
+    "username": "rajdeep",
+    "first_name": "",
+    "last_name": "",
+    "email": "202301040270@mitaoe.ac.in",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-16T06:59:43.777Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 1,
+  "fields": {
+    "name": "Asparagus Cooked",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 22,
+    "fat": 0,
+    "pro": 2,
+    "sug": 1,
+    "imagepath": "Asparagus_Cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 2,
+  "fields": {
+    "name": "Avocados",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 160,
+    "fat": 15,
+    "pro": 2,
+    "sug": 0,
+    "imagepath": "avocados.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 3,
+  "fields": {
+    "name": "Bananas",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 89,
+    "fat": 0,
+    "pro": 1,
+    "sug": 12,
+    "imagepath": "bananas.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 4,
+  "fields": {
+    "name": "Bagels made in wheat",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 250,
+    "fat": 1,
+    "pro": 10,
+    "sug": 6,
+    "imagepath": "Bagels.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 5,
+  "fields": {
+    "name": "Berries",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 349,
+    "fat": 0,
+    "pro": 14,
+    "sug": 46,
+    "imagepath": "Blueberries.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 6,
+  "fields": {
+    "name": "Brocolli",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 25,
+    "fat": 0,
+    "pro": 3,
+    "sug": 0,
+    "imagepath": "Brocolli.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 7,
+  "fields": {
+    "name": "Brown Rice",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 362,
+    "fat": 2,
+    "pro": 7,
+    "sug": 0,
+    "imagepath": "Brown_Rice.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 8,
+  "fields": {
+    "name": "Cauliflower",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 32,
+    "fat": 0,
+    "pro": 3,
+    "sug": 0,
+    "imagepath": "Cauliflower.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 9,
+  "fields": {
+    "name": "American cheese",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 331,
+    "fat": 24,
+    "pro": 20,
+    "sug": 0,
+    "imagepath": "American_cheese.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 10,
+  "fields": {
+    "name": "Coffee",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 2,
+    "fat": 0,
+    "pro": 0,
+    "sug": 0,
+    "imagepath": "Coffee.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 11,
+  "fields": {
+    "name": "Corn",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 97,
+    "fat": 1,
+    "pro": 3,
+    "sug": 7,
+    "imagepath": "Corn.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 12,
+  "fields": {
+    "name": "Dark chocolates",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 556,
+    "fat": 32,
+    "pro": 5,
+    "sug": 48,
+    "imagepath": "Dark_Chocolate.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 13,
+  "fields": {
+    "name": "Grapes",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 93,
+    "fat": 2,
+    "pro": 5,
+    "sug": 6,
+    "imagepath": "Grapes.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 14,
+  "fields": {
+    "name": "Milk",
+    "bf": 1,
+    "lu": 0,
+    "di": 1,
+    "cal": 97,
+    "fat": 6,
+    "pro": 3,
+    "sug": 0,
+    "imagepath": "Milk.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 15,
+  "fields": {
+    "name": "Cashew Nuts",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 553,
+    "fat": 44,
+    "pro": 18,
+    "sug": 5,
+    "imagepath": "Cashews.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 16,
+  "fields": {
+    "name": "Onions",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 40,
+    "fat": 0,
+    "pro": 1,
+    "sug": 4,
+    "imagepath": "Onion.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 17,
+  "fields": {
+    "name": "Orange",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 97,
+    "fat": 0,
+    "pro": 1,
+    "sug": 0,
+    "imagepath": "Oranges.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 18,
+  "fields": {
+    "name": "Pasta canned with tomato sauce",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 71,
+    "fat": 0,
+    "pro": 2,
+    "sug": 4,
+    "imagepath": "Pasta.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 19,
+  "fields": {
+    "name": "Pears",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 57,
+    "fat": 0,
+    "pro": 0,
+    "sug": 9,
+    "imagepath": "Pears.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 20,
+  "fields": {
+    "name": "Peas",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 81,
+    "fat": 0,
+    "pro": 5,
+    "sug": 5,
+    "imagepath": "Peas.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 21,
+  "fields": {
+    "name": "Protein Powder",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 411,
+    "fat": 17,
+    "pro": 46,
+    "sug": 5,
+    "imagepath": "Protien_powder.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 22,
+  "fields": {
+    "name": "Pumpkin",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 18,
+    "fat": 0,
+    "pro": 0,
+    "sug": 2,
+    "imagepath": "Pumpkin.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 23,
+  "fields": {
+    "name": "Tuna Salad",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 187,
+    "fat": 9,
+    "pro": 16,
+    "sug": 0,
+    "imagepath": "Tuna_Salad.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 24,
+  "fields": {
+    "name": "Tuna Fish",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 184,
+    "fat": 6,
+    "pro": 30,
+    "sug": 0,
+    "imagepath": "Tuna_fish.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 25,
+  "fields": {
+    "name": "Peproni Pizza",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 298,
+    "fat": 14,
+    "pro": 12,
+    "sug": 3,
+    "imagepath": "Peproni_Pizza.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 26,
+  "fields": {
+    "name": "Cheese Pizza",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 276,
+    "fat": 11,
+    "pro": 11,
+    "sug": 2,
+    "imagepath": "Cheese_Pizza.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 27,
+  "fields": {
+    "name": "French Fries",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 289,
+    "fat": 14,
+    "pro": 3,
+    "sug": 0,
+    "imagepath": "French_Fries.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 28,
+  "fields": {
+    "name": "Chicken Burger",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 292,
+    "fat": 15,
+    "pro": 18,
+    "sug": 0,
+    "imagepath": "Chicken_Burger.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 29,
+  "fields": {
+    "name": "Cheese Burger",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 256,
+    "fat": 12,
+    "pro": 13,
+    "sug": 0,
+    "imagepath": "Cheese_Burger.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 30,
+  "fields": {
+    "name": "Chicken Sandwich",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 257,
+    "fat": 12,
+    "pro": 15,
+    "sug": 5,
+    "imagepath": "Chicken_Sandwich.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 31,
+  "fields": {
+    "name": "Sugar Doughnuts",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 426,
+    "fat": 23,
+    "pro": 5,
+    "sug": 32,
+    "imagepath": "Sugar_Doughnuts.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 32,
+  "fields": {
+    "name": "Chocolate Doughnuts",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 452,
+    "fat": 25,
+    "pro": 4,
+    "sug": 27,
+    "imagepath": "Chocolate_Doughnuts.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 33,
+  "fields": {
+    "name": "Pop Corn - Caramel",
+    "bf": 1,
+    "lu": 0,
+    "di": 1,
+    "cal": 381,
+    "fat": 1,
+    "pro": 2,
+    "sug": 65,
+    "imagepath": "Popcorn_Caramel.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 34,
+  "fields": {
+    "name": "Pop Corn",
+    "bf": 1,
+    "lu": 0,
+    "di": 1,
+    "cal": 429,
+    "fat": 9,
+    "pro": 13,
+    "sug": 0,
+    "imagepath": "Popcorn.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 35,
+  "fields": {
+    "name": "Dosa",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 168,
+    "fat": 3,
+    "pro": 4,
+    "sug": 0,
+    "imagepath": "Dosa.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 36,
+  "fields": {
+    "name": "Idli",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 156,
+    "fat": 1,
+    "pro": 5,
+    "sug": 0,
+    "imagepath": "Idli.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 37,
+  "fields": {
+    "name": "Poha",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 130,
+    "fat": 1,
+    "pro": 2,
+    "sug": 0,
+    "imagepath": "Poha.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 38,
+  "fields": {
+    "name": "Chappati",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 297,
+    "fat": 7,
+    "pro": 11,
+    "sug": 2,
+    "imagepath": "Chappati.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 39,
+  "fields": {
+    "name": "Tomato",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 16,
+    "fat": 0,
+    "pro": 1,
+    "sug": 2,
+    "imagepath": "Tomatoes.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 40,
+  "fields": {
+    "name": "Yogurt",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 60,
+    "fat": 4,
+    "pro": 3,
+    "sug": 7,
+    "imagepath": "Yogourt.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 41,
+  "fields": {
+    "name": "Brownie",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 407,
+    "fat": 6,
+    "pro": 4,
+    "sug": 55,
+    "imagepath": "Brownie.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 42,
+  "fields": {
+    "name": "Noodles",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 108,
+    "fat": 0,
+    "pro": 1,
+    "sug": 0,
+    "imagepath": "Noodles.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 43,
+  "fields": {
+    "name": "Uttapam",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 188,
+    "fat": 7,
+    "pro": 4,
+    "sug": 0,
+    "imagepath": "Uttapam.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 44,
+  "fields": {
+    "name": "Bhaji Pav",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 151,
+    "fat": 2,
+    "pro": 9,
+    "sug": 1,
+    "imagepath": "Bhaji_Pav.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 45,
+  "fields": {
+    "name": "Dal Makhani",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 109,
+    "fat": 8,
+    "pro": 2,
+    "sug": 3,
+    "imagepath": "Dal_Makhani.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 46,
+  "fields": {
+    "name": "Almonds",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 579,
+    "fat": 50,
+    "pro": 21,
+    "sug": 4,
+    "imagepath": "Almonds.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 47,
+  "fields": {
+    "name": "Mushrooms",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 22,
+    "fat": 0,
+    "pro": 3,
+    "sug": 2,
+    "imagepath": "Mushrooms.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 48,
+  "fields": {
+    "name": "Egg Yolk cooked",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 196,
+    "fat": 15,
+    "pro": 14,
+    "sug": 0,
+    "imagepath": "Egg_Yolk_cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 49,
+  "fields": {
+    "name": "Sweet Potatoes cooked",
+    "bf": 1,
+    "lu": 1,
+    "di": 0,
+    "cal": 76,
+    "fat": 0,
+    "pro": 1,
+    "sug": 5,
+    "imagepath": "Sweet_Potatoes_cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 50,
+  "fields": {
+    "name": "Boiled Potatoes",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 87,
+    "fat": 0,
+    "pro": 1,
+    "sug": 0,
+    "imagepath": "Boiled_Potatoes.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 51,
+  "fields": {
+    "name": "White Rice",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 360,
+    "fat": 0,
+    "pro": 6,
+    "sug": 0,
+    "imagepath": "White_Rice.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 52,
+  "fields": {
+    "name": "Orange juice",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 45,
+    "fat": 0,
+    "pro": 0,
+    "sug": 8,
+    "imagepath": "Oranges.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 53,
+  "fields": {
+    "name": "Greek yogurt plain",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 73,
+    "fat": 1,
+    "pro": 10,
+    "sug": 3,
+    "imagepath": "Greek_yogurt_plain.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 54,
+  "fields": {
+    "name": "Oat Bran Cooked",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 40,
+    "fat": 0,
+    "pro": 3,
+    "sug": 0,
+    "imagepath": "Oat_Bran_Cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 55,
+  "fields": {
+    "name": "Green Tea",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 1,
+    "fat": 0,
+    "pro": 0,
+    "sug": 0,
+    "imagepath": "Green_Tea.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 56,
+  "fields": {
+    "name": "Chia seeds",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 486,
+    "fat": 31,
+    "pro": 17,
+    "sug": 0,
+    "imagepath": "Chia_seeds.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 57,
+  "fields": {
+    "name": "Cottage cheese with vegetables",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 95,
+    "fat": 4,
+    "pro": 11,
+    "sug": 0,
+    "imagepath": "Cottage_cheese_with_vegetables.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 58,
+  "fields": {
+    "name": "Salmon",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 127,
+    "fat": 4,
+    "pro": 21,
+    "sug": 0,
+    "imagepath": "Salmon.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 59,
+  "fields": {
+    "name": "Cereals-Corn Flakes",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 384,
+    "fat": 0,
+    "pro": 5,
+    "sug": 7,
+    "imagepath": "Cereals_Corn_Flakes.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 60,
+  "fields": {
+    "name": "Beans",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 31,
+    "fat": 0,
+    "pro": 1,
+    "sug": 3,
+    "imagepath": "Beans.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 61,
+  "fields": {
+    "name": "Lentils",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 101,
+    "fat": 0,
+    "pro": 8,
+    "sug": 0,
+    "imagepath": "Lentils.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 62,
+  "fields": {
+    "name": "Pasta with corn homemade",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 126,
+    "fat": 0,
+    "pro": 2,
+    "sug": 0,
+    "imagepath": "Pasta_with_corn_homemade.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 63,
+  "fields": {
+    "name": "Tea",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 1,
+    "fat": 0,
+    "pro": 0,
+    "sug": 0,
+    "imagepath": "Tea.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 64,
+  "fields": {
+    "name": "Apples",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 52,
+    "fat": 0,
+    "pro": 0,
+    "sug": 10,
+    "imagepath": "apples.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 65,
+  "fields": {
+    "name": "Strawberries",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 32,
+    "fat": 0,
+    "pro": 0,
+    "sug": 4,
+    "imagepath": "Strawberries.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 66,
+  "fields": {
+    "name": "Quninoa",
+    "bf": 1,
+    "lu": 1,
+    "di": 0,
+    "cal": 120,
+    "fat": 1,
+    "pro": 4,
+    "sug": 0,
+    "imagepath": "Quninoa.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 67,
+  "fields": {
+    "name": "Goat meat",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 109,
+    "fat": 2,
+    "pro": 21,
+    "sug": 0,
+    "imagepath": "Goat_meat.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 68,
+  "fields": {
+    "name": "Rabbit meat",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 114,
+    "fat": 2,
+    "pro": 22,
+    "sug": 0,
+    "imagepath": "Rabbit_meat.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 69,
+  "fields": {
+    "name": "Chicken Strips",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 295,
+    "fat": 15,
+    "pro": 19,
+    "sug": 0,
+    "imagepath": "Chicken_Strips.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 70,
+  "fields": {
+    "name": "Steak Fries",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 255,
+    "fat": 13,
+    "pro": 3,
+    "sug": 0,
+    "imagepath": "Steak_Fries.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 71,
+  "fields": {
+    "name": "Mexican Rice",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 195,
+    "fat": 4,
+    "pro": 3,
+    "sug": 1,
+    "imagepath": "Mexican_Rice.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 72,
+  "fields": {
+    "name": "Fried Shrimp",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 319,
+    "fat": 20,
+    "pro": 14,
+    "sug": 0,
+    "imagepath": "Fried_Shrimp.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 73,
+  "fields": {
+    "name": "Spaghetti and meatballs",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 170,
+    "fat": 8,
+    "pro": 7,
+    "sug": 2,
+    "imagepath": "Spaghetti_and_meatballs.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 74,
+  "fields": {
+    "name": "Macroni n Cheese ",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 194,
+    "fat": 12,
+    "pro": 6,
+    "sug": 2,
+    "imagepath": "Macroni_n_Cheese.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 75,
+  "fields": {
+    "name": "Pork cooked",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 297,
+    "fat": 21,
+    "pro": 26,
+    "sug": 0,
+    "imagepath": "Pork_cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 76,
+  "fields": {
+    "name": "Bacon cooked",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 146,
+    "fat": 2,
+    "pro": 28,
+    "sug": 1,
+    "imagepath": "Bacon_cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 77,
+  "fields": {
+    "name": "Nachos",
+    "bf": 1,
+    "lu": 1,
+    "di": 1,
+    "cal": 350,
+    "fat": 22,
+    "pro": 4,
+    "sug": 2,
+    "imagepath": "Nachos.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 78,
+  "fields": {
+    "name": "Chicken Popcorn",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 351,
+    "fat": 22,
+    "pro": 18,
+    "sug": 0,
+    "imagepath": "Chicken_Popcorn.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 79,
+  "fields": {
+    "name": "Turkey cooked",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 203,
+    "fat": 10,
+    "pro": 27,
+    "sug": 0,
+    "imagepath": "Turkey_cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 80,
+  "fields": {
+    "name": "Oyster cooked",
+    "bf": 0,
+    "lu": 1,
+    "di": 1,
+    "cal": 159,
+    "fat": 4,
+    "pro": 29,
+    "sug": 0,
+    "imagepath": "Oyster_cooked.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 81,
+  "fields": {
+    "name": "Beef sticks",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 550,
+    "fat": 50,
+    "pro": 22,
+    "sug": 0,
+    "imagepath": "Beef_sticks.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 82,
+  "fields": {
+    "name": "Banana Chips",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 519,
+    "fat": 34,
+    "pro": 2,
+    "sug": 35,
+    "imagepath": "Banana_Chips.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 83,
+  "fields": {
+    "name": "Honey",
+    "bf": 1,
+    "lu": 0,
+    "di": 1,
+    "cal": 304,
+    "fat": 0,
+    "pro": 0,
+    "sug": 82,
+    "imagepath": "Honey.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 84,
+  "fields": {
+    "name": "Chocolate Icecream",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 216,
+    "fat": 11,
+    "pro": 3,
+    "sug": 25,
+    "imagepath": "Chocolate_Icecream.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 85,
+  "fields": {
+    "name": "Vanilla Ice cream",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 207,
+    "fat": 11,
+    "pro": 3,
+    "sug": 21,
+    "imagepath": "Vanilla_Ice-cream.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 86,
+  "fields": {
+    "name": "Strawberry Icecream",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 192,
+    "fat": 8,
+    "pro": 3,
+    "sug": 0,
+    "imagepath": "Strawberry_Icecream.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 87,
+  "fields": {
+    "name": "Marshmallows",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 318,
+    "fat": 0,
+    "pro": 1,
+    "sug": 58,
+    "imagepath": "Marshmallows.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 88,
+  "fields": {
+    "name": "Chocolate milk",
+    "bf": 1,
+    "lu": 0,
+    "di": 0,
+    "cal": 535,
+    "fat": 30,
+    "pro": 7,
+    "sug": 52,
+    "imagepath": "Chocolate_milk.jpg"
+  }
+},
+{
+  "model": "recommender.food",
+  "pk": 89,
+  "fields": {
+    "name": "Rice Pudding",
+    "bf": 0,
+    "lu": 0,
+    "di": 1,
+    "cal": 376,
+    "fat": 0,
+    "pro": 2,
+    "sug": 0,
+    "imagepath": "Rice_Pudding.jpg"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 9,
+  "fields": {
+    "Username": "Mayur",
+    "Password": "Saurabh@1717",
+    "mail_id1": "mayur@gmail.com"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 10,
+  "fields": {
+    "Username": "Mayur",
+    "Password": "Saurabh@1717",
+    "mail_id1": "saurabh@gmail.com"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 11,
+  "fields": {
+    "Username": "yuvraj",
+    "Password": "Saurabh@1717",
+    "mail_id1": "saurabh@gmail.cmo"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 12,
+  "fields": {
+    "Username": "Mayur",
+    "Password": "Saurabh@1717",
+    "mail_id1": "Saurabh.mulik"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 13,
+  "fields": {
+    "Username": "rupesh",
+    "Password": "Saurabh@1717",
+    "mail_id1": "pathare@12"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 14,
+  "fields": {
+    "Username": "yuvraj1",
+    "Password": "Saurabh@1717",
+    "mail_id1": "12345"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 15,
+  "fields": {
+    "Username": "satish",
+    "Password": "123",
+    "mail_id1": "satish@mail"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 16,
+  "fields": {
+    "Username": "Rajdeep_av",
+    "Password": "Rajdeep@123",
+    "mail_id1": "rajdeepavhad12345@gmail.com"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 17,
+  "fields": {
+    "Username": "prajwal",
+    "Password": "nashta",
+    "mail_id1": "202301040288@mitaoe.ac.in"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 18,
+  "fields": {
+    "Username": "user_aed9dc01",
+    "Password": "secret123",
+    "mail_id1": "user_aed9dc01@mail.com"
+  }
+},
+{
+  "model": "recommender.userlist",
+  "pk": 19,
+  "fields": {
+    "Username": "Prajwal Jadhav",
+    "Password": "P099334@j",
+    "mail_id1": "jadhavprajwal1485@gmail.com"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 1,
+  "fields": {
+    "user": null,
+    "session_key": "oaf76r2qlqum4s5y8k3f7aankm2r2ft2",
+    "period": "daily",
+    "plan_date": "2026-03-19",
+    "target_calories": 2000,
+    "selected_calories": 95,
+    "selected_items": [
+      {
+        "name": "Apple",
+        "meal": "breakfast",
+        "calories": 95
+      }
+    ],
+    "bmi": 22.5,
+    "bodyfat": 18.2,
+    "bmiinfo": "Healthy",
+    "created_at": "2026-03-13T09:45:16.780Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 2,
+  "fields": {
+    "user": null,
+    "session_key": "4q2e1nfw4guc3oh1fp4iy9ujkac0vdz6",
+    "period": "daily",
+    "plan_date": "2026-03-19",
+    "target_calories": 2200,
+    "selected_calories": 102,
+    "selected_items": [
+      {
+        "name": "Idli",
+        "meal": "breakfast",
+        "calories": 58
+      },
+      {
+        "name": "Beans",
+        "meal": "dinner",
+        "calories": 44
+      }
+    ],
+    "bmi": 22.9,
+    "bodyfat": 18.1,
+    "bmiinfo": "Healthy",
+    "created_at": "2026-03-13T09:46:11.233Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "lefs15t9rz7yugs5ydrc8rru0n5k42qm",
+    "period": "daily",
+    "plan_date": "2026-03-19",
+    "target_calories": 2772,
+    "selected_calories": 58,
+    "selected_items": [
+      {
+        "name": "Onions",
+        "meal": "lunch",
+        "calories": 40
+      },
+      {
+        "name": "Pumpkin",
+        "meal": "lunch",
+        "calories": 18
+      }
+    ],
+    "bmi": 17.0,
+    "bodyfat": 9.77,
+    "bmiinfo": "according to your BMI, you are Underweight",
+    "created_at": "2026-03-13T09:49:18.729Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "session_key": "jkjnyv8yfckeawi7beopb5huc5343i9o",
+    "period": "daily",
+    "plan_date": "2026-03-19",
+    "target_calories": 2300,
+    "selected_calories": 58,
+    "selected_items": [
+      {
+        "name": "Idli",
+        "meal": "breakfast",
+        "calories": 58
+      }
+    ],
+    "bmi": 23.2,
+    "bodyfat": 20.0,
+    "bmiinfo": "Healthy",
+    "created_at": "2026-03-13T09:51:31.462Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "lefs15t9rz7yugs5ydrc8rru0n5k42qm",
+    "period": "daily",
+    "plan_date": "2026-03-19",
+    "target_calories": 2772,
+    "selected_calories": 168,
+    "selected_items": [
+      {
+        "name": "Dosa",
+        "meal": "breakfast",
+        "calories": 168
+      }
+    ],
+    "bmi": 17.0,
+    "bodyfat": 9.77,
+    "bmiinfo": "according to your BMI, you are Underweight",
+    "created_at": "2026-03-13T09:55:50.535Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "p3sg1o3c1az89dgz4txzjl4hrq8ado3s",
+    "period": "daily",
+    "plan_date": "2026-03-19",
+    "target_calories": 3094,
+    "selected_calories": 97,
+    "selected_items": [
+      {
+        "name": "Milk",
+        "meal": "breakfast",
+        "calories": 97
+      }
+    ],
+    "bmi": 17.0,
+    "bodyfat": 9.54,
+    "bmiinfo": "according to your BMI, you are Underweight",
+    "created_at": "2026-03-13T14:29:39.876Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "p3sg1o3c1az89dgz4txzjl4hrq8ado3s",
+    "period": "daily",
+    "plan_date": "2026-03-19",
+    "target_calories": 3094,
+    "selected_calories": 156,
+    "selected_items": [
+      {
+        "name": "Idli",
+        "meal": "breakfast",
+        "calories": 156
+      }
+    ],
+    "bmi": 17.0,
+    "bodyfat": 9.54,
+    "bmiinfo": "according to your BMI, you are Underweight",
+    "created_at": "2026-03-19T16:30:56.306Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "fsv31d2v6qek4wnu78f8f8q0u13r2ejl",
+    "period": "daily",
+    "plan_date": "2026-04-13",
+    "target_calories": 3094,
+    "selected_calories": 831,
+    "selected_items": [
+      {
+        "name": "Milk",
+        "meal": "breakfast",
+        "calories": 97
+      },
+      {
+        "name": "Dosa",
+        "meal": "breakfast",
+        "calories": 168
+      },
+      {
+        "name": "Pumpkin",
+        "meal": "lunch",
+        "calories": 18
+      },
+      {
+        "name": "White Rice",
+        "meal": "lunch",
+        "calories": 360
+      },
+      {
+        "name": "Uttapam",
+        "meal": "lunch",
+        "calories": 188
+      }
+    ],
+    "bmi": 17.0,
+    "bodyfat": 9.54,
+    "bmiinfo": "according to your BMI, you are Underweight",
+    "created_at": "2026-05-16T17:05:24.014Z"
+  }
+},
+{
+  "model": "recommender.saveddiet",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "fsv31d2v6qek4wnu78f8f8q0u13r2ejl",
+    "period": "daily",
+    "plan_date": "2026-04-13",
+    "target_calories": 3094,
+    "selected_calories": 97,
+    "selected_items": [
+      {
+        "name": "Milk",
+        "meal": "breakfast",
+        "calories": 97
+      }
+    ],
+    "bmi": 17.0,
+    "bodyfat": 9.54,
+    "bmiinfo": "according to your BMI, you are Underweight",
+    "created_at": "2026-05-16T17:08:53.318Z"
+  }
+},
+{
+  "model": "recommender.userpreference",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "",
+    "age": 20,
+    "weight": 67,
+    "height": 195,
+    "bodyfat": null,
+    "goal": "healthy",
+    "activity": "Heavy",
+    "gender": "male",
+    "category": "none",
+    "plan_period": "daily",
+    "plan_date": "2026-04-13",
+    "reminder_time": "",
+    "updated_at": "2026-05-16T17:29:33.796Z"
+  }
+},
+{
+  "model": "recommender.waterlog",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "",
+    "log_date": "2026-03-23",
+    "amount_ml": 250,
+    "updated_at": "2026-03-23T10:29:29.264Z"
+  }
+},
+{
+  "model": "recommender.waterlog",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "",
+    "log_date": "2026-04-13",
+    "amount_ml": 500,
+    "updated_at": "2026-04-13T08:48:04.166Z"
+  }
+},
+{
+  "model": "recommender.waterlog",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "Prajwal Jadhav"
+    ],
+    "session_key": "",
+    "log_date": "2026-05-16",
+    "amount_ml": 2750,
+    "updated_at": "2026-05-16T17:06:55.460Z"
+  }
+}
+]

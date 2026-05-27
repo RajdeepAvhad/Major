@@ -1,0 +1,27 @@
+{
+  "weight_loss": {
+    "top_features": [
+      {
+        "feature": "Fats",
+        "importance": 0.34423726613121997
+      },
+      {
+        "feature": "Calories",
+        "importance": 0.3191268816308056
+      },
+      {
+        "feature": "Carbohydrates",
+        "importance": 0.27512108440062244
+      },
+      {
+        "feature": "Iron",
+        "importance": 0.030782399473909
+      },
+      {
+        "feature": "Fibre",
+        "importance": 0.030732368363443056
+      }
+    ],
+    "total_features": 6
+  }
+}

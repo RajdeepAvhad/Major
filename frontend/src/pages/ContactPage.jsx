@@ -23,7 +23,7 @@ export default function ContactPage() {
           <div className="col-md-5">
             <h4 style={{ color: '#2ECC71', marginBottom: 24 }}>Get in touch with us</h4>
             <div className="d-flex align-items-center mb-3 gap-3">
-              <img src="/static/images/Gemini_Generated_Image_f0bd5kf0bd5kf0bd.png" height="40" alt="Logo" />
+              <img className="site-logo site-logo--contact" src="/static/images/logo.png" alt="Logo" />
               <span style={{ color: '#e8e8e8' }}>EatRight</span>
             </div>
             <div className="d-flex align-items-center mb-3 gap-3">

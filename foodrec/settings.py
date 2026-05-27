@@ -30,7 +30,12 @@ SECRET_KEY = 'l#()$jrfbxp-k_9!_^!uz(=9u^q6mfp(=2(m_7pu5xw4v@ou8p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'major-vaq9.vercel.app',
+    '*.vercel.app',
+    '127.0.0.1',
+    'localhost',
+]
 
 
 # Application definition
@@ -57,14 +62,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# CORS settings for React frontend (development)
+# CORS settings for React frontend (development and production)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://major-vaq9.vercel.app",
+    "https://*.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
+    "https://major-vaq9.vercel.app",
+    "https://*.vercel.app",
 ]
 
 TEMPLATES = [

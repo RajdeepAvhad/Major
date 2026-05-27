@@ -19,7 +19,20 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
+
+def home(request):
+    return JsonResponse({
+        "status": "running",
+        "message": "EatRight Food Recommendation API is live",
+        "endpoints": {
+            "admin": "/admin/",
+            "api": "/api/"
+        }
+    })
+
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
     path('api/', include('recommender.api_urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
